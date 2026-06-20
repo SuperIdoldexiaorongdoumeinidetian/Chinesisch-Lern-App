@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+/* Dunkler Modus über die Klasse "dark" am <html>-Element
+   (statt automatisch über die Systemeinstellung) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Kaiti SC ist eine nachgeladene macOS-Systemschrift. Chrome findet sie über
+   ihren Familiennamen oft nicht – daher binden wir sie unter eigenem Namen
+   ("KaitiApp") per local() ein und zählen alle Namensvarianten auf
+   (PostScript-Namen zuerst, die matchen am zuverlässigsten). */
+@font-face {
+  font-family: "KaitiApp";
+  src: local("STKaitiSC-Regular"), local("KaitiSC-Regular"),
+       local("Kaiti SC"), local("楷体-简"), local("楷体-简 常规体"),
+       local("STKaiti"), local("华文楷体"), local("Kaiti");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "KaitiApp";
+  src: local("STKaitiSC-Bold"), local("KaitiSC-Bold"),
+       local("Kaiti SC Bold"), local("楷体-简 粗体"), local("STKaiti");
+  font-weight: bold;
+}
+
+@theme {
+  /* Hanzi-Schrift:
+     - "KaitiApp"/"Kaiti SC": Kaishu-Pinselschrift, falls vorhanden & vom Browser
+       nutzbar (Chrome ja; Safari nicht, da nur als On-Demand-Asset installiert).
+     - "Songti SC": klassische Song/Ming-Serifenschrift, auf macOS FEST vorinstalliert
+       und daher auch in Safari zuverlässig verfügbar – der eigentliche Treffer.
+     - "Noto Sans SC": Web-Fallback für Nicht-Macs. */
+  --font-hanzi: "KaitiApp", "Kaiti SC", "Songti SC", "STSong", "Noto Sans SC", system-ui, sans-serif;
+}
+
+html {
+  /* Deutsche UI in der Systemschrift */
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.hanzi {
+  font-family: var(--font-hanzi);
+}
