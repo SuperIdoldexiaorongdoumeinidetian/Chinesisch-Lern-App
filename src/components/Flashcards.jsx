@@ -2,12 +2,14 @@
 // Ablauf: Setup (Decks/Richtungen wählen) → Session (erst fällige
 // Wiederholungen, dann neue Karten) → Zusammenfassung.
 //
-// Session-Warteschlange: Jede Karte trägt einen session-internen
-// Fälligkeitszeitpunkt `dueAt` (Zeitstempel). "Gut"/"Einfach" schieben die
-// Karte um Tage weiter → sie verlässt die Session. "Nochmal"/"Schwer" setzen
-// `dueAt` auf 2 bzw. 15 Minuten → die Karte bleibt in der Session und kommt
-// wieder dran, sobald ihre Zeit gekommen ist. Die Session endet erst, wenn
-// keine Karte mehr übrig ist.
+// Session-Warteschlange (positionsbasiert): Die Queue ist eine geordnete
+// Liste, die vorderste Karte (Index 0) ist die aktuelle. "Gut"/"Einfach"
+// nehmen die Karte heraus → sie verlässt die Session. "Nochmal"/"Schwer"
+// reihen die Karte ein paar Positionen weiter hinten wieder ein (siehe die
+// GAP-Konstanten unten), sodass man sie schnell wiedersieht, ohne erst die
+// ganze Queue durchzugehen. Die langfristigen Intervalle (interval/dueDate
+// für künftige Sessions) bleiben davon unberührt – die regelt review() in
+// srs.js. Die Session endet, sobald keine Karte mehr übrig ist.
 import { useEffect, useMemo, useState } from "react";
 import DeckPicker from "./DeckPicker";
 import {
@@ -23,18 +25,31 @@ import { useSpeech } from "../lib/speech";
 import SpeakButton from "./SpeakButton";
 import ExamBadge from "./ExamBadge";
 
+// --- Session-interne Reihenfolge ("Lern-Queue") ---------------------------
+// Wie viele Karten überspringt eine mit "Nochmal"/"Schwer" bewertete Karte,
+// bevor sie erneut erscheint? Hier zentral und leicht anpassbar.
+// Min/Max ergeben eine kleine Zufallsstreuung im jeweiligen Bereich.
+const AGAIN_GAP_MIN = 2; // "Nochmal": kurzer Abstand – nach 2–3 Karten zurück
+const AGAIN_GAP_MAX = 3;
+const HARD_GAP_MIN = 5; //  "Schwer":  etwas später – nach 5–6 Karten zurück
+const HARD_GAP_MAX = 6;
+
+// Ganze Zufallszahl in [min, max] (beide Grenzen eingeschlossen).
+const randInt = (min, max) =>
+  min + Math.floor(Math.random() * (max - min + 1));
+
 export default function Flashcards({ state, setState }) {
   const { settings } = state;
   const speech = useSpeech();
   const [phase, setPhase] = useState("setup"); // setup | learn | done
-  // Warteschlange: Einträge { card, dir, dueAt } — dueAt = Zeitstempel, ab wann
-  // die Karte in der Session wieder dran ist.
+  // Warteschlange: geordnete Liste von Einträgen { card, dir }. Die vorderste
+  // Karte (Index 0) ist die aktuelle; die Reihenfolge steuert rate().
   const [queue, setQueue] = useState([]);
   const [revealed, setRevealed] = useState(false);
   const [stats, setStats] = useState({ learned: 0, again: 0 });
-  // Tickt im Wartezustand, damit fällig werdende Karten erscheinen und der
-  // Countdown läuft.
-  const [now, setNow] = useState(() => Date.now());
+  // Anzahl einzigartiger Karten zu Session-Beginn – fixer Nenner für den
+  // Fortschrittszähler "Karte X von Y" (ändert sich durch Wiederholungen nicht).
+  const [total, setTotal] = useState(0);
 
   const pool = useMemo(
     () =>
@@ -60,34 +75,9 @@ export default function Flashcards({ state, setState }) {
     [pool, settings.directions, state.srs, settings.newPerDay, newToday]
   );
 
-  // Aktuelle Karte = früheste bereits fällige Karte (dueAt <= now).
-  // Ist keine fällig, merken wir uns den nächsten Fälligkeitszeitpunkt für den
-  // Countdown im Wartezustand.
-  const { current, currentIndex, nextDueAt } = useMemo(() => {
-    let curIdx = -1;
-    let soonest = Infinity;
-    for (let i = 0; i < queue.length; i++) {
-      const it = queue[i];
-      if (it.dueAt <= now) {
-        if (curIdx === -1 || it.dueAt < queue[curIdx].dueAt) curIdx = i;
-      } else if (it.dueAt < soonest) {
-        soonest = it.dueAt;
-      }
-    }
-    return {
-      current: curIdx >= 0 ? queue[curIdx] : null,
-      currentIndex: curIdx,
-      nextDueAt: soonest,
-    };
-  }, [queue, now]);
-
-  // Im Wartezustand (Karten in der Warteschlange, aber noch keine fällig)
-  // jede Sekunde neu prüfen.
-  useEffect(() => {
-    if (phase !== "learn" || current || queue.length === 0) return;
-    const id = setInterval(() => setNow(Date.now()), 250);
-    return () => clearInterval(id);
-  }, [phase, current, queue.length]);
+  // Aktuelle Karte = vorderste Karte der Queue (Index 0). Die Reihenfolge wird
+  // rein über die Position gesteuert, nicht mehr über Zeitstempel.
+  const current = queue[0] ?? null;
 
   // Session ist vorbei, sobald keine Karte mehr in der Warteschlange ist.
   useEffect(() => {
@@ -98,24 +88,24 @@ export default function Flashcards({ state, setState }) {
     setState((s) => ({ ...s, settings: { ...s.settings, ...patch } }));
 
   const start = () => {
-    const startAt = Date.now();
+    // Reihenfolge: erst fällige Wiederholungen, dann neue Karten.
     const items = [...session.due, ...session.fresh].map((it) => ({
       card: it.card,
       dir: it.dir,
-      dueAt: startAt, // alle sofort verfügbar; Reihenfolge: fällig vor neu
     }));
     setQueue(items);
+    setTotal(items.length);
     setRevealed(false);
     setStats({ learned: 0, again: 0 });
-    setNow(startAt);
     setPhase("learn");
   };
 
   const rate = (rating) => {
     if (!current) return;
-    const item = current;
+    const item = current; // aktuelle Karte steht immer vorn (queue[0])
     const key = srsKey(item.card, item.dir);
     const isNew = !state.srs[key];
+    // review() pflegt die LANGFRISTIGEN Werte (interval, dueDate) – unverändert.
     const newState = review(state.srs[key], rating);
 
     setState((s) => ({
@@ -128,15 +118,24 @@ export default function Flashcards({ state, setState }) {
       ),
     }));
 
+    // Session-interne Reihenfolge anpassen (rein positionsbasiert):
     setQueue((q) => {
+      const rest = q.slice(1); // vorderste (aktuelle) Karte herausnehmen
       if (rating === RATINGS.good || rating === RATINGS.easy) {
-        // Intervall in Tagen → Karte verlässt die Session.
-        return q.filter((_, j) => j !== currentIndex);
+        // Gut/Einfach: Karte verlässt die laufende Session.
+        return rest;
       }
-      // Nochmal/Schwer: in der Session lassen, neue Wiedervorlage in 2/15 Min.
-      const next = [...q];
-      next[currentIndex] = { ...next[currentIndex], dueAt: newState.dueDate };
-      return next;
+      // Nochmal/Schwer: ein paar Positionen weiter wieder einreihen, damit man
+      // die Karte schnell – aber nicht sofort – noch einmal sieht.
+      const gap =
+        rating === RATINGS.again
+          ? randInt(AGAIN_GAP_MIN, AGAIN_GAP_MAX)
+          : randInt(HARD_GAP_MIN, HARD_GAP_MAX);
+      // Sind weniger Karten übrig als die Einfügeposition, landet die Karte am
+      // Ende (splice hängt bei zu großem Index automatisch hinten an).
+      const idx = Math.min(gap, rest.length);
+      rest.splice(idx, 0, item);
+      return rest;
     });
 
     setStats((t) => ({
@@ -146,7 +145,6 @@ export default function Flashcards({ state, setState }) {
       again: t.again + (rating === RATINGS.again ? 1 : 0),
     }));
     setRevealed(false);
-    setNow(Date.now());
   };
 
   // Tastatursteuerung: Sobald eine Karte aufgedeckt ist, bewerten die Tasten
@@ -275,29 +273,9 @@ export default function Flashcards({ state, setState }) {
     );
   }
 
-  // ---- Wartezustand: alle übrigen Karten sind noch nicht wieder fällig ----
-  if (!current) {
-    const secs = Math.max(0, Math.ceil((nextDueAt - now) / 1000));
-    const mm = String(Math.floor(secs / 60)).padStart(2, "0");
-    const ss = String(secs % 60).padStart(2, "0");
-    return (
-      <div className="space-y-4 text-center">
-        <p className="text-4xl">⏳</p>
-        <h2 className="text-lg font-semibold">Kurze Pause</h2>
-        <p className="text-zinc-500">
-          Die nächste Wiederholung ist in{" "}
-          <span className="font-mono font-semibold">
-            {mm}:{ss}
-          </span>{" "}
-          fällig.
-        </p>
-        <p className="text-sm text-zinc-400">
-          Noch {queue.length} {queue.length === 1 ? "Karte" : "Karten"} in dieser
-          Session.
-        </p>
-      </div>
-    );
-  }
+  // Queue leer → der Effekt oben schaltet gleich auf "done"; bis dahin nichts
+  // rendern (verhindert Zugriff auf eine nicht vorhandene Karte).
+  if (!current) return null;
 
   // ---- Lernansicht ----
   const { card, dir } = current;
@@ -316,7 +294,7 @@ export default function Flashcards({ state, setState }) {
     <div className="space-y-4">
       <div className="flex items-center justify-between text-sm text-zinc-500">
         <span>
-          Noch {queue.length} {queue.length === 1 ? "Karte" : "Karten"}
+          Karte {Math.min(stats.learned + 1, total)} von {total}
         </span>
         <span>
           {card.lesson} · {DIRECTIONS[dir].label}
@@ -392,8 +370,10 @@ export default function Flashcards({ state, setState }) {
       {revealed && (
         <div className="grid grid-cols-4 gap-2">
           {[
-            ["Nochmal", RATINGS.again, "bg-rose-600 hover:bg-rose-700", ivs.again, 1],
-            ["Schwer", RATINGS.hard, "bg-amber-600 hover:bg-amber-700", ivs.hard, 2],
+            // Nochmal/Schwer bleiben in der Session: Beschriftung zeigt jetzt
+            // den Positionsabstand statt einer (irreführenden) Minutenangabe.
+            ["Nochmal", RATINGS.again, "bg-rose-600 hover:bg-rose-700", `in ${AGAIN_GAP_MIN}–${AGAIN_GAP_MAX} Karten`, 1],
+            ["Schwer", RATINGS.hard, "bg-amber-600 hover:bg-amber-700", `in ${HARD_GAP_MIN}–${HARD_GAP_MAX} Karten`, 2],
             ["Gut", RATINGS.good, "bg-emerald-600 hover:bg-emerald-700", ivs.good, 3],
             ["Einfach", RATINGS.easy, "bg-sky-600 hover:bg-sky-700", ivs.easy, 4],
           ].map(([label, r, cls, iv, num]) => (
