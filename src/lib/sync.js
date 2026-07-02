@@ -181,6 +181,18 @@ export function useCloudSync(state, setState) {
     pushData({ ...stateRef.current, updatedAt: Date.now() });
   }, [pushData]);
 
+  // Einen explizit übergebenen Stand sofort in die Cloud schreiben. Wird beim
+  // Zurücksetzen des Fortschritts gebraucht: dort muss der geleerte Stand
+  // hochgeladen werden, BEVOR der nächste Login-Merge den alten Cloud-Stand
+  // zurückspielen könnte. Anders als saveNow wartet dies nicht auf den
+  // React-Zustand (der nach setState noch veraltet wäre), sondern nimmt den
+  // Stand direkt als Argument. Gibt ein Promise zurück, das nach dem Upload
+  // erfüllt ist (no-op ohne Konfiguration/Login).
+  const pushNow = useCallback(
+    (data) => pushData({ ...data, updatedAt: Date.now() }),
+    [pushData]
+  );
+
   return {
     configured: supabaseConfigured,
     user,
@@ -190,5 +202,6 @@ export function useCloudSync(state, setState) {
     signIn,
     signOut,
     saveNow,
+    pushNow,
   };
 }

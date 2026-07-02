@@ -35,6 +35,16 @@ export default function App() {
       settings: { ...s.settings, dark: !s.settings.dark },
     }));
 
+  // Lernfortschritt zurücksetzen: srs (Karten-Zustände) und log (Tages-
+  // aktivität/Streak) leeren, Einstellungen (Decks, Dark-Mode, …) behalten.
+  // Wichtig bei aktiver Cloud-Sync: den geleerten Stand sofort hochladen,
+  // damit der nächste Login-Merge nicht den alten Cloud-Stand zurückspielt.
+  const resetProgress = () => {
+    const fresh = { ...state, srs: {}, log: {}, updatedAt: Date.now() };
+    setState(() => fresh);
+    sync.pushNow(fresh);
+  };
+
   return (
     <div className="min-h-screen bg-zinc-50 text-zinc-900 dark:bg-zinc-900 dark:text-zinc-100">
       {/* Kopfzeile */}
@@ -61,7 +71,9 @@ export default function App() {
 
       {/* Inhalt */}
       <main className="mx-auto max-w-xl px-4 py-5 pb-24">
-        {tab === "dashboard" && <Dashboard state={state} />}
+        {tab === "dashboard" && (
+          <Dashboard state={state} onReset={resetProgress} />
+        )}
         {tab === "learn" && <Flashcards state={state} setState={setState} />}
         {tab === "quiz" && <Quiz state={state} setState={setState} />}
         {tab === "radicals" && <RadicalTrainer />}
