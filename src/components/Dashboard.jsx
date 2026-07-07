@@ -14,7 +14,7 @@ import { calcStreak } from "../lib/store";
 
 const ALL_DIRS = ["hm", "mh", "hp"];
 
-export default function Dashboard({ state }) {
+export default function Dashboard({ state, onReset }) {
   const today = todayStr();
   const allCards = useMemo(() => [...vocabCards, ...radicalCards], []);
 
@@ -144,6 +144,24 @@ export default function Dashboard({ state }) {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Fortschritt zurücksetzen */}
+      <section className="border-t border-zinc-200 pt-4 dark:border-zinc-700">
+        <button
+          onClick={() => {
+            if (
+              window.confirm(
+                "Gesamten Lernfortschritt (Karten-Zustände, Streak und Verlauf) wirklich zurücksetzen? Deine Einstellungen bleiben erhalten. Das lässt sich nicht rückgängig machen."
+              )
+            ) {
+              onReset?.();
+            }
+          }}
+          className="w-full rounded-xl border border-rose-300 px-4 py-2 text-sm font-medium text-rose-600 hover:bg-rose-50 dark:border-rose-800 dark:text-rose-400 dark:hover:bg-rose-950/40"
+        >
+          Fortschritt zurücksetzen
+        </button>
       </section>
     </div>
   );

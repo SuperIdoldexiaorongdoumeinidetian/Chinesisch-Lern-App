@@ -2,9 +2,10 @@
 //
 // Kerngedanke: Jede Karte hat ein "interval" (Abstand in ganzen Tagen,
 // 0 = neu oder zurückgesetzt). Bei richtigen Antworten wächst das Intervall
-// immer weiter (Gut × 2,5 / Einfach × 3,5), bis man "Schwer" (Pause ohne
-// Wachstum) oder "Nochmal" (Reset auf 0) drückt. Kurzfristige Wiedervorlagen
-// innerhalb der Session laufen über Minuten statt Tage.
+// immer weiter (Gut × 2,5 / Einfach × 3,5). "Schwer" und "Nochmal" setzen das
+// Intervall auf 0 zurück, sodass die Gut-/Einfach-Dauern wieder von vorn
+// beginnen ("Nochmal" zählt zusätzlich als Lapse). Kurzfristige Wiedervorlagen
+// innerhalb der Session laufen über die Position in der Lern-Queue.
 
 // Bewertungen der vier Buttons (Strings statt Zahlen — der frühere
 // SM-2-Qualitätswert 0-5 wird nicht mehr gebraucht).
@@ -84,8 +85,10 @@ export function review(state, rating, now = Date.now()) {
       return { interval: 0, dueDate: now + AGAIN_DELAY_MS, lapses: s.lapses + 1, lastReviewed: now };
 
     case RATINGS.hard:
-      // Intervall bleibt unverändert; nur kurze Pause (15 Min) in der Session.
-      return { interval: s.interval, dueDate: now + HARD_DELAY_MS, lapses: s.lapses, lastReviewed: now };
+      // Intervall auf 0 zurücksetzen (wie bei "Nochmal"), damit die Gut-/
+      // Einfach-Dauern wieder von vorn beginnen. Kurze Pause (15 Min) in der
+      // Session. Anders als "Nochmal" wird dies NICHT als Lapse gezählt.
+      return { interval: 0, dueDate: now + HARD_DELAY_MS, lapses: s.lapses, lastReviewed: now };
 
     case RATINGS.good: {
       const interval = nextGoodInterval(s.interval);

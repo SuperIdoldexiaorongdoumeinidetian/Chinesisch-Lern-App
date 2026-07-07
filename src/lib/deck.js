@@ -1,14 +1,23 @@
 // Deck-Logik: macht aus den JSON-Daten "Karten" mit stabiler ID und
 // stellt Filterung (Lektionen, Eigennamen) und Sitzungsaufbau bereit.
 import vocab from "../data/vocab.json";
+import hsk from "../data/hsk.json";
 import radicals from "../data/radicals.json";
 
-// Alle Lektionen in Lehrbuch-Reihenfolge (für Auswahl-Listen und Statistik).
+// HSK-Wortschatz (offizielle Bänder 1–6 sowie 7–9) als eigene Decks,
+// in aufsteigender Niveau-Reihenfolge.
+export const HSK_LESSONS = [
+  "HSK1", "HSK2", "HSK3", "HSK4", "HSK5", "HSK6", "HSK7-9",
+];
+
+// Alle Lektionen in Lehrbuch-Reihenfolge (für Auswahl-Listen und Statistik),
+// gefolgt von den HSK-Bändern.
 export const LESSONS = [
   "1-1", "1-2", "1-3", "2-1", "2-2", "2-3",
   "3-1", "3-2", "3-3", "4-1", "4-2", "4-3",
   "5-1", "5-2", "5-3", "6-1", "6-2", "6-3",
   "Schriftzeichen", "Kouyu",
+  ...HSK_LESSONS,
 ];
 export const RADICAL_DECK = "Radikale";
 
@@ -19,7 +28,9 @@ export const DIRECTIONS = {
 };
 
 // Vokabel-Karten: ID aus Lektion+Hanzi+Wortart (eindeutig, siehe Datenprüfung).
-export const vocabCards = vocab.map((e) => ({
+// Lehrbuch- und HSK-Vokabeln teilen sich dieselbe Kartenlogik; da die HSK-
+// Decks eigene Lektionsnamen (HSK1 …) haben, bleiben die IDs eindeutig.
+export const vocabCards = [...vocab, ...hsk].map((e) => ({
   ...e,
   id: `${e.lesson}|${e.hanzi}|${e.wordClass}`,
   type: "vocab",
