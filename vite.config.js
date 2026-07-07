@@ -41,6 +41,10 @@ export default defineConfig({
       workbox: {
         // App-Shell (JS/CSS/HTML/Schriften/Bilder) für den Offline-Start cachen.
         globPatterns: ["**/*.{js,css,html,woff2,png,svg}"],
+        // Das JS-Bundle enthält den kompletten Wortschatz (Lehrbuch + HSK 1–9)
+        // und überschreitet die 2-MiB-Standardgrenze. Limit anheben, damit die
+        // App auch mit HSK-Daten vollständig offline vorgeladen wird.
+        maximumFileSizeToCacheInBytes: 6 * 1024 * 1024,
       },
     }),
   ],

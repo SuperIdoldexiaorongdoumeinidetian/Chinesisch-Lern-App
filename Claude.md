@@ -1,82 +1,142 @@
-# Prompt für Claude Code: Hanzi-Lern-App (Kaishi! Lek 1–6 + Radikale)
+# Hanzi-Lern-App — Projektdokumentation
 
-**Vorbereitung:** Lege die beiden PDFs (`Vokabeln_Zeichen_Lek_1-6_汉字.pdf` und `Radikalliste_Chinesisch-Deutsch.pdf`) in den Projektordner, bevor du den Prompt abschickst. Claude Code liest sie dann direkt ein.
+Lokale, installierbare Web-App (PWA) zum Lernen chinesischer Vokabeln und
+Schriftzeichen. Grundlage sind die Kaishi!-Kursvokabeln (Lek 1–6 + Zusatzteile),
+der komplette **HSK-Wortschatz (Standard 3.0)** und die 201 Radikale.
 
----
-
-Ich möchte eine Lern-App für chinesische Vokabeln und Schriftzeichen als lokale Web-App bauen. Grundlage sind meine Kursunterlagen, die als PDFs im Projektordner liegen:
-
-1. `Vokabeln_Zeichen_Lek_1-6_汉字.pdf` — Vokabelliste zum Lehrbuch "Kaishi!", gegliedert nach Lektionen (1-1 bis 6-3) plus zwei Zusatzteile ("Aussprache/Pinyin/Schriftzeichen" und Vokabeln aus dem "Intensiver Sprachkurs 口语速成")
-2. `Radikalliste_Chinesisch-Deutsch.pdf` — 201 Radikale mit deutschen Bedeutungen, sortiert nach Strichzahl, inkl. Varianten (z. B. 氵→ 水, 亻→ 人)
-
-Ich bin kein erfahrener Entwickler, erkläre mir daher bei wichtigen Entscheidungen kurz das Warum.
+Der Nutzer ist kein erfahrener Entwickler — bei wichtigen Entscheidungen kurz das
+**Warum** erklären. UI und Inhalte sind auf **Deutsch**.
 
 ## Tech-Stack
-- React mit Vite, reines Frontend (kein Backend)
-- Tailwind CSS
-- Persistenz über localStorage
-- Bibliothek "hanzi-writer" (npm) für Strichreihenfolge und Schreibübungen
 
-## Schritt 1: Datenextraktion aus den PDFs
-Extrahiere die Vokabeln und Radikale in zwei JSON-Dateien. Das ist die wichtigste Grundlage — zeig mir das Schema und ein paar Beispieleinträge zur Freigabe, bevor du alles extrahierst.
+- **React 19 + Vite 6**, reines Frontend, kein eigenes Backend
+- **Tailwind CSS 4** (via `@tailwindcss/vite`)
+- **hanzi-writer** für Strichreihenfolge und Schreibübungen (lädt Zeichendaten
+  pro Zeichen aus dem CDN — als einziges Feature nicht offline-fähig)
+- **vite-plugin-pwa**: installierbar (iOS-Homescreen), Service Worker cacht die
+  App-Shell für Offline-Start. Das JS-Bundle enthält den kompletten Wortschatz,
+  daher ist das Workbox-Cache-Limit auf 6 MiB angehoben (siehe `vite.config.js`).
+- **Supabase** für optionale geräteübergreifende Synchronisation des Lernstands
+- Persistenz lokal über **localStorage**; Supabase liegt als Sync-Schicht darüber
 
-**vocab.json** — pro Eintrag:
-- `hanzi` (vereinfachte Zeichen, z. B. "电话")
-- `pinyin` (mit Tonzeichen, z. B. "diànhuà")
-- `meaning` (deutsche Bedeutung)
-- `wordClass` (Substantiv, Verb, Adjektiv, Adverb, Pronomen, Zählwort, Partikel, Fragewort, Konjunktion, Redemittel, …)
-- `lesson` (z. B. "1-1", "3-2", "Schriftzeichen", "Kouyu")
-- `isProperName` (true/false — Eigennamen wie 王大民, 北京 markieren, damit ich sie vom Lernen ausschließen kann; Länder/Städte wie 中国, 慕尼黑 zählen NICHT als Eigennamen, die will ich lernen)
+## Projektstruktur
 
-Wichtig: In den frühen Lektionen fehlen im PDF teils die deutschen Bedeutungen (es steht nur Pinyin). Ergänze die fehlenden Bedeutungen selbst — du kennst dieses Grundvokabular. Markiere ergänzte Einträge mit `"meaningSource": "ergänzt"`, damit ich sie stichprobenartig prüfen kann.
+```
+src/
+  data/
+    vocab.json      ← 1068 Kaishi!-Vokabeln (aus dem Kurs-PDF extrahiert)
+    hsk.json        ← 10.990 HSK-Vokabeln (HSK1–HSK6 + HSK7-9)
+    radicals.json   ← 201 Radikale
+    vocab.backup.json ← Sicherung der Extraktion
+  lib/
+    deck.js         ← Karten-/Deck-Aufbau, Session-Logik, Quiz-Optionen
+    srs.js          ← Spaced-Repetition-Algorithmus (Anki-angelehnt, KEIN SM-2)
+    store.js        ← localStorage-Persistenz, Merge-Logik, Streak/Tageslog
+    sync.js         ← Supabase-Cloud-Sync (useCloudSync-Hook)
+    supabase.js     ← Supabase-Client (aus VITE_-Env-Vars)
+    pinyin.js       ← Pinyin-Vergleich (Tonzeichen ↔ Ton-Zahlen)
+    speech.js       ← Aussprache über Web Speech API
+  components/
+    Dashboard.jsx   ← Statistik/Übersicht        Flashcards.jsx ← SRS-Lernen
+    Quiz.jsx        ← Quiz-Modi                   RadicalTrainer.jsx
+    Writing.jsx     ← Schreibtraining             DeckPicker.jsx ← Deck-Auswahl
+    SyncBar.jsx     ← Login/Sync-Status           SpeakButton, ExamBadge
+  App.jsx           ← Navigation (5 Tabs), dunkler Modus, Fortschritt-Reset
+scripts/extract_highlights.py ← Extraktion der Markierungen aus dem PDF
+```
 
-**radicals.json** — pro Eintrag:
-- `number` (1–201), `radical` (Zeichen), `variants` (z. B. ["氵"] bei 水), `meaning` (deutsch), `strokes` (Strichzahl)
+## Datenmodell
 
-## Schritt 2: Kernfunktionen
+Vokabel-Einträge (`vocab.json` **und** `hsk.json`, gleiches Schema):
 
-### Flashcards mit Spaced Repetition
-- SM-2-Algorithmus (wie Anki), Bewertung mit "Nochmal / Schwer / Gut / Einfach"
-- Lern-Decks nach Lektion auswählbar (einzeln oder mehrere, z. B. "Lek 1–3 für die Prüfung"), Radikale als eigenes Deck
-- Eigennamen standardmäßig ausgeschlossen, per Toggle zuschaltbar
-- Drei Kartenrichtungen wählbar: Hanzi → Bedeutung, Bedeutung → Hanzi, Hanzi → Pinyin
-- Tägliche Session: erst fällige Wiederholungen, dann neue Karten (Limit einstellbar, Standard 10/Tag)
+- `hanzi` — vereinfachte Zeichen (z. B. "电话")
+- `pinyin` — mit Tonzeichen (z. B. "diànhuà")
+- `meaning` — deutsche Bedeutung (Kaishi!) bzw. englische (HSK-Quelle)
+- `wordClass` — Substantiv, Verb, Adjektiv, Adverb, Pronomen, Zählwort,
+  Partikel, Fragewort, Konjunktion, Redemittel, …
+- `lesson` — Kaishi!: "1-1"…"6-3", "Schriftzeichen", "Kouyu";
+  HSK: "HSK1"…"HSK6", "HSK7-9"
+- `isProperName` — Eigennamen (Personennamen) sind standardmäßig vom Lernen
+  ausgeschlossen; Länder/Städte wie 中国 zählen **nicht** als Eigenname
+- `meaningSource` — "ergänzt" (im Kaishi!-PDF fehlte die Bedeutung) oder "hsk"
+- `highlighted` / `highlightColor` — im Kaishi!-Original farbig markiert.
+  **Prüfungsrelevant** = gelb `#FFFF00` (siehe `isExamRelevant` in `deck.js`);
+  darüber filtert der Schalter „nur prüfungsrelevante Vokabeln".
 
-### Radikal-Trainer
-- Eigener Modus: Radikal → deutsche Bedeutung (Multiple Choice), gefiltert nach Strichzahl
-- Bonus, falls machbar: Bei Vokabelkarten anzeigen, welche bekannten Radikale im Zeichen stecken
+Radikale (`radicals.json`): `number` (1–201), `radical`, `variants` (z. B. ["氵"]
+bei 水), `meaning` (deutsch), `strokes`.
 
-### Schreibtraining
-- hanzi-writer: Strichreihenfolge animiert anzeigen
-- Quiz-Modus zum Nachzeichnen mit Maus/Finger; bei mehrsilbigen Wörtern Zeichen für Zeichen
+Warum HSK in einer eigenen Datei? Damit sich Kurs- und HSK-Wortschatz getrennt
+pflegen und als getrennte Deck-Gruppen auswählen lassen. In `deck.js` werden
+beide Quellen zu einem Kartenpool zusammengeführt; die Karten-ID
+`lesson|hanzi|wordClass` bleibt dank der HSK-eigenen Lektionsnamen eindeutig.
 
-### Quiz-Modi
-- Hanzi → Bedeutung und Bedeutung → Hanzi (Multiple Choice, 4 Optionen, Distraktoren bevorzugt aus derselben Lektion)
-- Hanzi → Pinyin (Texteingabe, Töne als Zahlen erlaubt, z. B. "dian4hua4")
+## Kernkonzepte
 
-### Fortschritt & Statistik
-- Dashboard: gelernte Vokabeln gesamt, fällige Karten heute, Streak
-- Fortschrittsbalken pro Lektion und für die Radikale
-- Reviews pro Tag der letzten 30 Tage als einfaches Diagramm
+**Karten & Decks** (`deck.js`): Jede Vokabel wird pro Abfragerichtung zu einer
+Karte. Drei Richtungen: `hm` (Hanzi→Bedeutung), `mh` (Bedeutung→Hanzi),
+`hp` (Hanzi→Pinyin). Decks = Lektionen/HSK-Level/„Radikale" (Mehrfachauswahl).
+SRS-Schlüssel = `card.id|direction`.
 
-## UI/UX
-- Mobile-first, deutsche UI
-- Cleanes, ruhiges Design, dunkler Modus optional
-- Hanzi groß und sauber darstellen (z. B. Noto Sans SC)
+**Spaced Repetition** (`srs.js`): **Kein SM-2 mehr.** Jede Karte hat ein
+`interval` (ganze Tage). Vier Bewertungen: Nochmal / Schwer / Gut / Einfach.
+Gut ×2,5, Einfach ×3,5; Nochmal und Schwer setzen das Intervall auf 0 zurück
+(Nochmal zählt zusätzlich als Lapse). Kurzfristige Wiedervorlagen innerhalb der
+Session laufen über die Position in der Queue (Nochmal → +2 min, Schwer → +15 min).
+`normalizeCardState` migriert alte Stände (auch das frühere SM-2-Format) beim Laden.
 
-## Vorgehen
-1. Erst Projektplan mit Ordnerstruktur und Komponenten zeigen
-2. Dann Schritt 1 (Datenextraktion) — Schema-Freigabe abwarten, danach vollständig extrahieren und mir die Anzahl der Einträge pro Lektion nennen, damit ich die Vollständigkeit prüfen kann
-3. Danach Features in dieser Reihenfolge: Flashcards mit SRS → Quiz-Modi → Radikal-Trainer → Schreibtraining → Statistik
-4. Nach jedem Schritt kurz erklären, was gebaut wurde und wie ich es teste (npm run dev)
-5. Sauberer, kommentierter Code, damit ich ihn nachvollziehen und erweitern kann
+**Session-Aufbau** (`buildSession`): erst fällige Wiederholungen (älteste zuerst),
+dann neue Karten bis zum Tageslimit (Standard 10/Tag).
 
-Beginne mit dem Projektplan und frag nach, falls etwas unklar ist.
+**Persistenz & Merge** (`store.js`): gesamter Lernstand unter einem
+localStorage-Schlüssel. `mergeStates` führt lokal + Cloud verlustfrei zusammen —
+`srs`: jüngeres `lastReviewed` gewinnt; `log`: Maximum je Tagesfeld; `settings`:
+jüngeres `updatedAt` gewinnt.
 
----
+**Cloud-Sync** (`sync.js` + `supabase.js`): Login per Magic Link. Beim Login wird
+der Cloud-Stand geladen und **gemergt** (nie überschrieben), Änderungen werden
+debounced (3 s) hochgeladen, offline wird gepuffert. Ohne `VITE_`-Env-Vars läuft
+die App rein lokal weiter (`supabaseConfigured === false`). Schutz über Row Level
+Security auf der Supabase-Tabelle `progress`. Deployment-Details siehe Memory
+`supabase-sync-deployment`.
 
-## Tipps
+## Die fünf Bereiche (Tabs in `App.jsx`)
 
-- **Extraktion prüfen:** Lass dir nach Schritt 1 die Einträge z. B. von Lek 2-2 anzeigen und vergleiche mit dem PDF — die PDF-Textextraktion verschluckt manchmal Zeichen oder verrutscht bei Spalten
-- **Bedeutungen stichproben:** Die ergänzten Bedeutungen (frühe Lektionen) kurz gegen dein Lehrbuch checken
-- **Erweiterungen später einzeln anfragen:** Audio-Aussprache (Web Speech API), Export/Import des Lernstands als JSON, Lektion 7+ wenn der Kurs weitergeht
+| Tab | Inhalt |
+|---|---|
+| **Übersicht** | Gelernte Karten, heute fällig, Streak, Fortschritt pro Lektion/Level, Reviews der letzten 30 Tage |
+| **Lernen** | Flashcards mit SRS; Decks, Richtungen, Tageslimit, Eigennamen-Toggle, „nur prüfungsrelevant" |
+| **Quiz** | Multiple Choice (Hanzi↔Bedeutung, Distraktoren bevorzugt aus derselben Lektion) + Pinyin-Texteingabe mit Ton-Zahlen (`dian4hua4`). Ändert den Lernstand nicht |
+| **Radikale** | Radikal→Bedeutung als Multiple Choice, nach Strichzahl filterbar, mit Nachschlage-Liste. Auch als eigenes Deck im Lernen verfügbar |
+| **Schreiben** | Strichreihenfolge ansehen/nachzeichnen (hanzi-writer), mehrsilbig Zeichen für Zeichen |
+
+## Entwicklung
+
+```bash
+npm install        # nur beim ersten Mal
+npm run dev        # Dev-Server (http://localhost:5173), --host fürs Handy
+npm run build      # Produktions-Build nach dist/
+npm run preview    # Build lokal testen
+```
+
+Für Cloud-Sync eine `.env` mit `VITE_SUPABASE_URL` und `VITE_SUPABASE_ANON_KEY`
+anlegen (ohne läuft die App lokal).
+
+## Datenqualität (bei Änderungen an den JSON-Daten beachten)
+
+- Kaishi!-Vokabeln wurden aus einem Tabellen-PDF über Koordinaten rekonstruiert
+  und Seite für Seite geprüft; 585 Bedeutungen sind `"ergänzt"` (im PDF fehlten
+  sie). Doppelte Wörter mit unterschiedlicher Wortart sind bewusst getrennte Karten.
+- Korrigierte PDF-Tippfehler u. a.: 便宜 piányi (nicht „biànyi"), 好吃 hǎochī,
+  桔子水 júzishuǐ, 还可以 hái kěyǐ, 空儿 kòngr. Radikal Nr. 169 (im PDF durch
+  Schriftart-Problem fehlend) als **㫃** ergänzt.
+- Neue Lektionen/Level: einfach an die passende JSON-Datei anhängen. Neue
+  HSK-Level oder Deck-Gruppen zusätzlich in `LESSONS`/`HSK_LESSONS` in `deck.js`
+  eintragen.
+
+## Arbeitsweise
+
+- Sauberer, **kommentierter** Code auf Deutsch (siehe bestehende Dateien —
+  Kommentare erklären das „Warum") — der Nutzer will ihn nachvollziehen und erweitern.
+- Nach größeren Änderungen kurz erklären, was gebaut wurde und wie man es testet.
+- Bei Unklarheit nachfragen statt raten.

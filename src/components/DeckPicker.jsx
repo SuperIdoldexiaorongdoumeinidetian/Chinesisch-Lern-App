@@ -1,6 +1,6 @@
 // Auswahl der Lern-Decks (Lektionen + Radikale), der Kartenrichtungen
 // und des Eigennamen-Schalters. Wird von Flashcards und Quiz genutzt.
-import { LESSONS, RADICAL_DECK, DIRECTIONS } from "../lib/deck";
+import { RADICAL_DECK, HSK_LESSONS, DIRECTIONS } from "../lib/deck";
 
 const GROUPS = [
   { title: "Lektion 1", items: ["1-1", "1-2", "1-3"] },
@@ -10,6 +10,7 @@ const GROUPS = [
   { title: "Lektion 5", items: ["5-1", "5-2", "5-3"] },
   { title: "Lektion 6", items: ["6-1", "6-2", "6-3"] },
   { title: "Extras", items: ["Schriftzeichen", "Kouyu", RADICAL_DECK] },
+  { title: "HSK", items: HSK_LESSONS },
 ];
 
 export default function DeckPicker({
