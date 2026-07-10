@@ -9,12 +9,14 @@ import Flashcards from "./components/Flashcards";
 import Quiz from "./components/Quiz";
 import RadicalTrainer from "./components/RadicalTrainer";
 import Writing from "./components/Writing";
+import VocabList from "./components/VocabList";
 import SyncBar from "./components/SyncBar";
 
 const TABS = [
   { id: "dashboard", label: "Übersicht", icon: "📊" },
   { id: "learn", label: "Lernen", icon: "🎴" },
   { id: "quiz", label: "Quiz", icon: "❓" },
+  { id: "vocab", label: "Wörter", icon: "📋" },
   { id: "radicals", label: "Radikale", icon: "部" },
   { id: "writing", label: "Schreiben", icon: "✍️" },
 ];
@@ -76,6 +78,7 @@ export default function App() {
         )}
         {tab === "learn" && <Flashcards state={state} setState={setState} />}
         {tab === "quiz" && <Quiz state={state} setState={setState} />}
+        {tab === "vocab" && <VocabList state={state} setState={setState} />}
         {tab === "radicals" && <RadicalTrainer />}
         {tab === "writing" && <Writing state={state} />}
       </main>

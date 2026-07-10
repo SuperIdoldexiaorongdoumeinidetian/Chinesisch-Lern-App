@@ -56,9 +56,10 @@ export default function Flashcards({ state, setState }) {
       buildPool(
         settings.decks,
         settings.includeProperNames,
-        settings.onlyHighlighted
+        settings.onlyHighlighted,
+        state.customVocab
       ),
-    [settings.decks, settings.includeProperNames, settings.onlyHighlighted]
+    [settings.decks, settings.includeProperNames, settings.onlyHighlighted, state.customVocab]
   );
 
   // Wie viele neue Karten heute noch erlaubt sind (Tageslimit).

@@ -21,11 +21,11 @@ export default function Writing({ state }) {
 
   // Wörter der gewählten Lektion (ohne Eigennamen, nur mit CJK-Zeichen)
   const words = useMemo(() => {
-    const pool = buildPool([lesson], false).filter(
+    const pool = buildPool([lesson], false, false, state.customVocab).filter(
       (c) => cjkChars(c.hanzi).length > 0
     );
     return pool;
-  }, [lesson]);
+  }, [lesson, state.customVocab]);
 
   const word = words[wordIdx];
   const chars = word ? cjkChars(word.hanzi) : [];
