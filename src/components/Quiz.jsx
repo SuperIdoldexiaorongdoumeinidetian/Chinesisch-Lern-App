@@ -30,9 +30,10 @@ export default function Quiz({ state, setState }) {
       buildPool(
         settings.decks,
         settings.includeProperNames,
-        settings.onlyHighlighted
+        settings.onlyHighlighted,
+        state.customVocab
       ),
-    [settings.decks, settings.includeProperNames, settings.onlyHighlighted]
+    [settings.decks, settings.includeProperNames, settings.onlyHighlighted, state.customVocab]
   );
   const updateSettings = (patch) =>
     setState((s) => ({ ...s, settings: { ...s.settings, ...patch } }));

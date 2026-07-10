@@ -11,6 +11,8 @@ const DEFAULT_STATE = {
   srs: {},
   // Aktivität pro Tag: { "2026-06-12": { reviews: 12, newCards: 5 } }
   log: {},
+  // Angepasste Wörterlisten pro Lektion (nur geänderte Lektionen gespeichert).
+  customVocab: {},
   // Zeitpunkt der letzten lokalen Änderung (ms). Dient beim geräteübergreifenden
   // Merge als Tie-Break für die Einstellungen (jüngerer Stand gewinnt).
   updatedAt: 0,
@@ -42,6 +44,7 @@ export function loadState() {
       ...structuredClone(DEFAULT_STATE),
       ...parsed,
       srs,
+      customVocab: parsed.customVocab ?? {},
       settings: { ...DEFAULT_STATE.settings, ...(parsed.settings ?? {}) },
     };
   } catch {
@@ -95,9 +98,10 @@ export function mergeStates(a, b) {
   // --- settings + updatedAt: jüngerer Gesamtstand gewinnt ---
   const aNewer = (a.updatedAt ?? 0) >= (b.updatedAt ?? 0);
   const settings = aNewer ? a.settings : b.settings;
+  const customVocab = (aNewer ? a : b).customVocab ?? {};
   const updatedAt = Math.max(a.updatedAt ?? 0, b.updatedAt ?? 0);
 
-  return { srs, log, settings, updatedAt };
+  return { srs, log, settings, customVocab, updatedAt };
 }
 
 // Hilfsfunktion: Tageseintrag im Log erhöhen.

@@ -30,6 +30,8 @@ src/
     vocab.backup.json ← Sicherung der Extraktion
   lib/
     deck.js         ← Karten-/Deck-Aufbau, Session-Logik, Quiz-Optionen
+    vocab.js        ← Wortschatz-Verwaltung: Standard aus JSON + benutzer-
+                       definierte Anpassungen pro Lektion (customVocab)
     srs.js          ← Spaced-Repetition-Algorithmus (Anki-angelehnt, KEIN SM-2)
     store.js        ← localStorage-Persistenz, Merge-Logik, Streak/Tageslog
     sync.js         ← Supabase-Cloud-Sync (useCloudSync-Hook)
@@ -40,8 +42,9 @@ src/
     Dashboard.jsx   ← Statistik/Übersicht        Flashcards.jsx ← SRS-Lernen
     Quiz.jsx        ← Quiz-Modi                   RadicalTrainer.jsx
     Writing.jsx     ← Schreibtraining             DeckPicker.jsx ← Deck-Auswahl
-    SyncBar.jsx     ← Login/Sync-Status           SpeakButton, ExamBadge
-  App.jsx           ← Navigation (5 Tabs), dunkler Modus, Fortschritt-Reset
+    VocabList.jsx   ← Wörterlisten-Editor         SyncBar.jsx ← Login/Sync-Status
+    SpeakButton, ExamBadge
+  App.jsx           ← Navigation (6 Tabs), dunkler Modus, Fortschritt-Reset
 scripts/extract_highlights.py ← Extraktion der Markierungen aus dem PDF
 ```
 
@@ -62,6 +65,8 @@ Vokabel-Einträge (`vocab.json` **und** `hsk.json`, gleiches Schema):
 - `highlighted` / `highlightColor` — im Kaishi!-Original farbig markiert.
   **Prüfungsrelevant** = gelb `#FFFF00` (siehe `isExamRelevant` in `deck.js`);
   darüber filtert der Schalter „nur prüfungsrelevante Vokabeln".
+- `hidden` — vom Nutzer im Wörterlisten-Editor ausgeblendet; solche Einträge
+  fehlen beim Lernen, Quiz und Schreiben (nur in angepassten Lektionen möglich).
 
 Radikale (`radicals.json`): `number` (1–201), `radical`, `variants` (z. B. ["氵"]
 bei 水), `meaning` (deutsch), `strokes`.
@@ -76,7 +81,19 @@ beide Quellen zu einem Kartenpool zusammengeführt; die Karten-ID
 **Karten & Decks** (`deck.js`): Jede Vokabel wird pro Abfragerichtung zu einer
 Karte. Drei Richtungen: `hm` (Hanzi→Bedeutung), `mh` (Bedeutung→Hanzi),
 `hp` (Hanzi→Pinyin). Decks = Lektionen/HSK-Level/„Radikale" (Mehrfachauswahl).
-SRS-Schlüssel = `card.id|direction`.
+SRS-Schlüssel = `card.id|direction`. Der Vokabel-Kartenpool kommt jetzt aus
+`buildVocabCards(customVocab)` in `vocab.js` (nicht mehr aus einer statischen
+Liste), damit Nutzeranpassungen einfließen; `buildPool(...)` nimmt `customVocab`
+als zusätzliches Argument.
+
+**Wörterlisten & Anpassungen** (`vocab.js` + `VocabList.jsx`): Der Nutzer kann pro
+Lektion Wörter bearbeiten, hinzufügen, löschen oder ausblenden (`hidden`).
+`customVocab` liegt im App-State als `{ [lesson]: [einträge] }` und speichert
+**nur geänderte Lektionen** — unveränderte Lektionen kommen weiter direkt aus den
+JSON-Dateien (`getDefaultLesson`). Vor der ersten Bearbeitung wird die Standard-
+Liste einer Lektion nach `customVocab` kopiert (`ensureLesson`); „Standard"
+(`resetLesson`) bzw. „Alle auf Standard" (`resetAllLessons`) verwerfen die
+Anpassung wieder. Radikale sind hier nicht editierbar (separate Datei).
 
 **Spaced Repetition** (`srs.js`): **Kein SM-2 mehr.** Jede Karte hat ein
 `interval` (ganze Tage). Vier Bewertungen: Nochmal / Schwer / Gut / Einfach.
@@ -86,12 +103,14 @@ Session laufen über die Position in der Queue (Nochmal → +2 min, Schwer → +
 `normalizeCardState` migriert alte Stände (auch das frühere SM-2-Format) beim Laden.
 
 **Session-Aufbau** (`buildSession`): erst fällige Wiederholungen (älteste zuerst),
-dann neue Karten bis zum Tageslimit (Standard 10/Tag).
+dann neue Karten bis zum Tageslimit (Standard 10/Tag). Die neuen Karten werden
+**zufällig** aus allen aktivierten Kapiteln gezogen (gemischt und erst dann aufs
+Limit gekürzt), nicht streng in JSON-Reihenfolge.
 
-**Persistenz & Merge** (`store.js`): gesamter Lernstand unter einem
-localStorage-Schlüssel. `mergeStates` führt lokal + Cloud verlustfrei zusammen —
-`srs`: jüngeres `lastReviewed` gewinnt; `log`: Maximum je Tagesfeld; `settings`:
-jüngeres `updatedAt` gewinnt.
+**Persistenz & Merge** (`store.js`): gesamter Lernstand (inkl. `customVocab`) unter
+einem localStorage-Schlüssel. `mergeStates` führt lokal + Cloud verlustfrei
+zusammen — `srs`: jüngeres `lastReviewed` gewinnt; `log`: Maximum je Tagesfeld;
+`settings` und `customVocab`: jüngerer Gesamtstand (`updatedAt`) gewinnt.
 
 **Cloud-Sync** (`sync.js` + `supabase.js`): Login per Magic Link. Beim Login wird
 der Cloud-Stand geladen und **gemergt** (nie überschrieben), Änderungen werden
@@ -100,13 +119,14 @@ die App rein lokal weiter (`supabaseConfigured === false`). Schutz über Row Lev
 Security auf der Supabase-Tabelle `progress`. Deployment-Details siehe Memory
 `supabase-sync-deployment`.
 
-## Die fünf Bereiche (Tabs in `App.jsx`)
+## Die sechs Bereiche (Tabs in `App.jsx`)
 
 | Tab | Inhalt |
 |---|---|
 | **Übersicht** | Gelernte Karten, heute fällig, Streak, Fortschritt pro Lektion/Level, Reviews der letzten 30 Tage |
 | **Lernen** | Flashcards mit SRS; Decks, Richtungen, Tageslimit, Eigennamen-Toggle, „nur prüfungsrelevant" |
 | **Quiz** | Multiple Choice (Hanzi↔Bedeutung, Distraktoren bevorzugt aus derselben Lektion) + Pinyin-Texteingabe mit Ton-Zahlen (`dian4hua4`). Ändert den Lernstand nicht |
+| **Wörter** | Wörterlisten-Editor: pro Lektion Wörter bearbeiten, hinzufügen, löschen, ausblenden oder auf Standard zurücksetzen (`customVocab`) |
 | **Radikale** | Radikal→Bedeutung als Multiple Choice, nach Strichzahl filterbar, mit Nachschlage-Liste. Auch als eigenes Deck im Lernen verfügbar |
 | **Schreiben** | Strichreihenfolge ansehen/nachzeichnen (hanzi-writer), mehrsilbig Zeichen für Zeichen |
 
@@ -131,8 +151,9 @@ anlegen (ohne läuft die App lokal).
   桔子水 júzishuǐ, 还可以 hái kěyǐ, 空儿 kòngr. Radikal Nr. 169 (im PDF durch
   Schriftart-Problem fehlend) als **㫃** ergänzt.
 - Neue Lektionen/Level: einfach an die passende JSON-Datei anhängen. Neue
-  HSK-Level oder Deck-Gruppen zusätzlich in `LESSONS`/`HSK_LESSONS` in `deck.js`
-  eintragen.
+  HSK-Level oder Deck-Gruppen zusätzlich in den Lektionslisten in `vocab.js`
+  (`KAISHI_LESSONS`/`HSK_LESSONS`, daraus `LESSONS` in `deck.js`) und in den
+  `GROUPS` des Wörterlisten-Editors (`VocabList.jsx`) eintragen.
 
 ## Arbeitsweise
 

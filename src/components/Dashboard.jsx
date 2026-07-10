@@ -4,7 +4,7 @@ import { useMemo } from "react";
 import {
   LESSONS,
   RADICAL_DECK,
-  vocabCards,
+  buildVocabCards,
   radicalCards,
   srsKey,
   isExamRelevant,
@@ -16,7 +16,11 @@ const ALL_DIRS = ["hm", "mh", "hp"];
 
 export default function Dashboard({ state, onReset }) {
   const today = todayStr();
-  const allCards = useMemo(() => [...vocabCards, ...radicalCards], []);
+  const vocabCards = useMemo(
+    () => buildVocabCards(state.customVocab),
+    [state.customVocab]
+  );
+  const allCards = useMemo(() => [...vocabCards, ...radicalCards], [vocabCards]);
 
   // Eine Karte gilt als "gelernt", wenn sie in mindestens einer Richtung
   // schon einmal bewertet wurde.

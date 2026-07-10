@@ -1,14 +1,9 @@
 // Deck-Logik: macht aus den JSON-Daten "Karten" mit stabiler ID und
 // stellt Filterung (Lektionen, Eigennamen) und Sitzungsaufbau bereit.
-import vocab from "../data/vocab.json";
-import hsk from "../data/hsk.json";
 import radicals from "../data/radicals.json";
+import { HSK_LESSONS, buildVocabCards } from "./vocab";
 
-// HSK-Wortschatz (offizielle Bänder 1–6 sowie 7–9) als eigene Decks,
-// in aufsteigender Niveau-Reihenfolge.
-export const HSK_LESSONS = [
-  "HSK1", "HSK2", "HSK3", "HSK4", "HSK5", "HSK6", "HSK7-9",
-];
+export { HSK_LESSONS };
 
 // Alle Lektionen in Lehrbuch-Reihenfolge (für Auswahl-Listen und Statistik),
 // gefolgt von den HSK-Bändern.
@@ -30,11 +25,7 @@ export const DIRECTIONS = {
 // Vokabel-Karten: ID aus Lektion+Hanzi+Wortart (eindeutig, siehe Datenprüfung).
 // Lehrbuch- und HSK-Vokabeln teilen sich dieselbe Kartenlogik; da die HSK-
 // Decks eigene Lektionsnamen (HSK1 …) haben, bleiben die IDs eindeutig.
-export const vocabCards = [...vocab, ...hsk].map((e) => ({
-  ...e,
-  id: `${e.lesson}|${e.hanzi}|${e.wordClass}`,
-  type: "vocab",
-}));
+export { buildVocabCards };
 
 // Radikal-Karten: eigenes Deck, ohne Pinyin.
 export const radicalCards = radicals.map((r) => ({
@@ -61,7 +52,8 @@ export const isExamRelevant = (card) =>
 // Karten-Pool für eine Deck-Auswahl zusammenstellen.
 // onlyHighlighted: nur prüfungsrelevante Vokabeln (Radikale entfallen dann,
 // da sie keine solche Markierung tragen).
-export function buildPool(decks, includeProperNames, onlyHighlighted = false) {
+export function buildPool(decks, includeProperNames, onlyHighlighted = false, customVocab = {}) {
+  const vocabCards = buildVocabCards(customVocab);
   const pool = [];
   for (const c of vocabCards) {
     if (!decks.includes(c.lesson)) continue;
@@ -79,6 +71,8 @@ export const srsKey = (card, dir) => `${card.id}|${dir}`;
 // Baut die heutige Lern-Session: erst fällige Wiederholungen, dann neue
 // Karten (begrenzt durch das Tageslimit). Radikale haben kein Pinyin,
 // deshalb wird die Richtung "hp" für sie übersprungen.
+// Neue Karten werden zufällig aus den aktivierten Decks gezogen (siehe unten),
+// damit man nicht immer stur die Wortliste von oben nach unten durcharbeitet.
 export function buildSession(pool, directions, srs, newLimit, now = Date.now()) {
   const due = [];
   const fresh = [];
@@ -93,9 +87,11 @@ export function buildSession(pool, directions, srs, newLimit, now = Date.now()) 
       }
     }
   }
-  // Fällige nach Fälligkeit (älteste zuerst), neue in Datenreihenfolge.
+  // Fällige nach Fälligkeit (älteste zuerst). Neue Karten mischen und erst
+  // dann aufs Tageslimit kürzen — so sind die neuen Karten eine zufällige
+  // Auswahl aus allen aktivierten Kapiteln statt der ersten n in JSON-Reihenfolge.
   due.sort((a, b) => a.state.dueDate - b.state.dueDate);
-  return { due, fresh: fresh.slice(0, Math.max(0, newLimit)) };
+  return { due, fresh: sample(fresh, Math.max(0, newLimit)) };
 }
 
 // Zufällige Auswahl von n Elementen (für Quiz-Distraktoren).
