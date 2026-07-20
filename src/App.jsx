@@ -10,12 +10,14 @@ import Quiz from "./components/Quiz";
 import RadicalTrainer from "./components/RadicalTrainer";
 import Writing from "./components/Writing";
 import VocabList from "./components/VocabList";
+import Grammar from "./components/Grammar";
 import SyncBar from "./components/SyncBar";
 
 const TABS = [
   { id: "dashboard", label: "Übersicht", icon: "📊" },
   { id: "learn", label: "Lernen", icon: "🎴" },
   { id: "quiz", label: "Quiz", icon: "❓" },
+  { id: "grammar", label: "Grammatik", icon: "语" },
   { id: "vocab", label: "Wörter", icon: "📋" },
   { id: "radicals", label: "Radikale", icon: "部" },
   { id: "writing", label: "Schreiben", icon: "✍️" },
@@ -42,7 +44,7 @@ export default function App() {
   // Wichtig bei aktiver Cloud-Sync: den geleerten Stand sofort hochladen,
   // damit der nächste Login-Merge nicht den alten Cloud-Stand zurückspielt.
   const resetProgress = () => {
-    const fresh = { ...state, srs: {}, log: {}, updatedAt: Date.now() };
+    const fresh = { ...state, srs: {}, log: {}, grammar: {}, updatedAt: Date.now() };
     setState(() => fresh);
     sync.pushNow(fresh);
   };
@@ -78,6 +80,7 @@ export default function App() {
         )}
         {tab === "learn" && <Flashcards state={state} setState={setState} />}
         {tab === "quiz" && <Quiz state={state} setState={setState} />}
+        {tab === "grammar" && <Grammar state={state} setState={setState} />}
         {tab === "vocab" && <VocabList state={state} setState={setState} />}
         {tab === "radicals" && <RadicalTrainer />}
         {tab === "writing" && <Writing state={state} />}
