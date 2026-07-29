@@ -161,8 +161,15 @@ export default async function handler(req, res) {
     // eine grobe Einordnung; der Client fällt ohnehin auf den lokalen
     // Generator zurück.
     const status = err?.status ?? 500;
+    // Diagnose: Anthropics echte Fehlermeldung ins Vercel-Log schreiben und
+    // (vorübergehend) mitschicken – so sieht man bei einem 400 den genauen
+    // Grund (z. B. ungültiges Modell, max_tokens zu groß). Später wieder
+    // entfernen, damit keine internen Details nach außen gelangen.
+    console.error("Anthropic-Fehler:", status, err?.message, err?.error);
     return res.status(status >= 400 && status < 600 ? status : 500).json({
       error: "KI-Anfrage fehlgeschlagen.",
+      detail: err?.message ?? String(err),
+      model: MODEL,
     });
   }
 }
