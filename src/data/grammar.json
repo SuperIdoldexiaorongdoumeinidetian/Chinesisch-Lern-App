@@ -1,0 +1,664 @@
+[
+  {
+    "id": 1,
+    "lektion": "Lek 1–3",
+    "titel": "Grundwortstellung: Subjekt – Zeit – Ort – Verb – Objekt",
+    "struktur": "S + Zeit + Ort + V + O",
+    "erklaerung": "Die Wortstellung ist eines der wichtigsten Merkmale der chinesischen Grammatik, da es keine Konjugation oder Deklination gibt. Die Grundreihenfolge lautet: Subjekt – Zeitangabe – Ortsangabe – Verb – Objekt. Anders als im Deutschen stehen Zeit- und Ortsangaben immer vor dem Verb, nie am Satzende.",
+    "beispiele": [
+      { "zeichen": "我们今天晚上想去饭馆吃饭。", "pinyin": "Wǒmen jīntiān wǎnshang xiǎng qù fànguǎn chīfàn.", "deutsch": "Wir möchten heute Abend im Restaurant essen gehen." },
+      { "zeichen": "他上午和下午都在大学有课。", "pinyin": "Tā shàngwǔ hé xiàwǔ dōu zài dàxué yǒu kè.", "deutsch": "Er hat vormittags und nachmittags an der Universität Unterricht." },
+      { "zeichen": "我在北京的大学学习汉语。", "pinyin": "Wǒ zài Běijīng de dàxué xuéxí Hànyǔ.", "deutsch": "Ich lerne Chinesisch an einer Universität in Peking." },
+      { "zeichen": "周末我和朋友一起去看电影。", "pinyin": "Zhōumò wǒ hé péngyou yìqǐ qù kàn diànyǐng.", "deutsch": "Am Wochenende gehe ich mit Freunden zusammen ins Kino." }
+    ],
+    "merke": "Zeitangaben werden von groß nach klein geordnet: 明天下午四点 (morgen Nachmittag um vier Uhr)."
+  },
+  {
+    "id": 2,
+    "lektion": "Lek 1–3",
+    "titel": "Namen erfragen: 姓, 叫 und 您贵姓",
+    "struktur": "S + 姓 + Nachname / S + 叫 + (voller) Name",
+    "erklaerung": "Für Namen gibt es zwei Verben: 姓 xìng wird nur mit dem Nachnamen verwendet, 叫 jiào mit dem Vornamen oder dem vollständigen Namen. Die höfliche Frage nach dem Nachnamen lautet 您贵姓？(wörtlich: „Wie ist Ihr werter Nachname?“). Die Antwort darauf ist einfach 我姓…, niemals 我贵姓.",
+    "beispiele": [
+      { "zeichen": "您贵姓？", "pinyin": "Nín guìxìng?", "deutsch": "Wie ist Ihr (werter) Nachname?" },
+      { "zeichen": "我姓张。", "pinyin": "Wǒ xìng Zhāng.", "deutsch": "Ich heiße Zhang (mit Nachnamen)." },
+      { "zeichen": "你叫什么名字？", "pinyin": "Nǐ jiào shénme míngzi?", "deutsch": "Wie heißt du?" },
+      { "zeichen": "我叫张京生。", "pinyin": "Wǒ jiào Zhāng Jīngshēng.", "deutsch": "Ich heiße Zhang Jingsheng." },
+      { "zeichen": "他姓什么？他姓王。", "pinyin": "Tā xìng shénme? Tā xìng Wáng.", "deutsch": "Wie ist sein Nachname? – Er heißt Wang." }
+    ],
+    "merke": "您 nín ist die Höflichkeitsform von 你 nǐ."
+  },
+  {
+    "id": 3,
+    "lektion": "Lek 1–3",
+    "titel": "Sätze mit 是 und Fragen mit 吗",
+    "struktur": "A + 是 + B · Satz + 吗？",
+    "erklaerung": "是 shì entspricht dem deutschen „sein“ und verbindet zwei Nomen (A ist B). Es wird nicht konjugiert und mit 不 bù verneint (不是). Um eine Ja-Nein-Frage zu bilden, hängt man einfach die Fragepartikel 吗 ma an den Aussagesatz – die Wortstellung ändert sich nicht.",
+    "beispiele": [
+      { "zeichen": "她是我的老师。", "pinyin": "Tā shì wǒ de lǎoshī.", "deutsch": "Sie ist meine Lehrerin." },
+      { "zeichen": "你认识她吗？", "pinyin": "Nǐ rènshi tā ma?", "deutsch": "Kennst du sie?" },
+      { "zeichen": "我不是北京人，我是南京人。", "pinyin": "Wǒ bú shì Běijīngrén, wǒ shì Nánjīngrén.", "deutsch": "Ich komme nicht aus Peking, ich komme aus Nanjing." },
+      { "zeichen": "他是张老师的学生。", "pinyin": "Tā shì Zhāng lǎoshī de xuésheng.", "deutsch": "Er ist ein Student von Lehrer Zhang." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 4,
+    "lektion": "Lek 1–3",
+    "titel": "Attributpartikel 的: Besitz und Zugehörigkeit",
+    "struktur": "Besitzer + 的 + Nomen",
+    "erklaerung": "Die Partikel 的 de steht zwischen Besitzer und Besitz: 我的老师 „mein Lehrer“, 谁的书 „wessen Buch“. Bei engen persönlichen Beziehungen wie Familienmitgliedern wird 的 meist weggelassen: 我妹妹 „meine jüngere Schwester“, 我家 „meine Familie“.",
+    "beispiele": [
+      { "zeichen": "这不是你的书，是我的。", "pinyin": "Zhè bú shì nǐ de shū, shì wǒ de.", "deutsch": "Das ist nicht dein Buch, es ist meins." },
+      { "zeichen": "她是谁的学生？", "pinyin": "Tā shì shéi de xuésheng?", "deutsch": "Wessen Studentin ist sie?" },
+      { "zeichen": "我的电话号码是 0173 658 7722。", "pinyin": "Wǒ de diànhuà hàomǎ shì líng yāo qī sān liù wǔ bā qī qī èr èr.", "deutsch": "Meine Telefonnummer ist 0173 658 7722." },
+      { "zeichen": "你的朋友叫什么名字？", "pinyin": "Nǐ de péngyou jiào shénme míngzi?", "deutsch": "Wie heißt dein Freund?" }
+    ],
+    "merke": null
+  },
+  {
+    "id": 5,
+    "lektion": "Lek 1–3",
+    "titel": "Adjektivprädikat mit 很",
+    "struktur": "S + 很 + Adjektiv",
+    "erklaerung": "Adjektive können in Chinesisch direkt als Prädikat dienen – ohne 是. In neutralen Aussagesätzen steht vor dem Adjektiv fast immer 很 hěn, das hier meist unbetont ist und nicht unbedingt „sehr“ bedeutet. Ohne 很 klingt der Satz vergleichend.",
+    "beispiele": [
+      { "zeichen": "珍妮很好。", "pinyin": "Zhēnnī hěn hǎo.", "deutsch": "Jenny geht es gut." },
+      { "zeichen": "比尔的汉字很漂亮。", "pinyin": "Bǐ'ěr de Hànzì hěn piàoliang.", "deutsch": "Bills Schriftzeichen sind sehr schön." },
+      { "zeichen": "我很高兴。", "pinyin": "Wǒ hěn gāoxìng.", "deutsch": "Ich freue mich." }
+    ],
+    "merke": "Falsch: 她是很高。 Richtig: 她很高。"
+  },
+  {
+    "id": 6,
+    "lektion": "Lek 1–3",
+    "titel": "Verblose Sätze (Nominalprädikat)",
+    "struktur": "S + Nomen/Zahlausdruck",
+    "erklaerung": "Sätze mit Angaben zu Alter, Datum, Wochentag oder Uhrzeit brauchen im Chinesischen kein Verb – das Prädikat besteht direkt aus einem Nomen oder einer Zahlausdruck-Phrase. 是 kann eingefügt werden (z.B. in der Verneinung: 今天不是星期三), ist aber im Aussagesatz nicht nötig.",
+    "beispiele": [
+      { "zeichen": "今天星期三。", "pinyin": "Jīntiān xīngqīsān.", "deutsch": "Heute ist Mittwoch." },
+      { "zeichen": "马克二十二岁。", "pinyin": "Mǎkè èrshí'èr suì.", "deutsch": "Mark ist 22 Jahre alt." },
+      { "zeichen": "明天六月二十五号。", "pinyin": "Míngtiān liùyuè èrshíwǔ hào.", "deutsch": "Morgen ist der 25. Juni." },
+      { "zeichen": "王丽十九岁。", "pinyin": "Wáng Lì shíjiǔ suì.", "deutsch": "Wang Li ist 19 Jahre alt." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 7,
+    "lektion": "Lek 1–3",
+    "titel": "Das Fragepronomen 谁",
+    "struktur": "谁 an der Stelle der erfragten Person",
+    "erklaerung": "Das Fragepronomen 谁 shéi (auch shuí) bedeutet „wer“ oder „wen“. Es steht an genau der Position im Satz, an der in der Antwort die erfragte Person steht – es kann also Subjekt (Satzanfang) oder Objekt (Satzende) sein. Die Wortstellung ändert sich nicht.",
+    "beispiele": [
+      { "zeichen": "她是谁？她是我姐姐。", "pinyin": "Tā shì shéi? Tā shì wǒ jiějie.", "deutsch": "Wer ist sie? – Sie ist meine ältere Schwester." },
+      { "zeichen": "谁是你妹妹？", "pinyin": "Shéi shì nǐ mèimei?", "deutsch": "Wer ist deine jüngere Schwester?" },
+      { "zeichen": "大民认识谁？", "pinyin": "Dàmín rènshi shéi?", "deutsch": "Wen kennt Damin?" },
+      { "zeichen": "谁认识马克？", "pinyin": "Shéi rènshi Mǎkè?", "deutsch": "Wer kennt Mark?" }
+    ],
+    "merke": null
+  },
+  {
+    "id": 8,
+    "lektion": "Lek 1–3",
+    "titel": "W-Fragewörter: Position im Satz",
+    "struktur": "Fragewort an der Stelle der Antwort",
+    "erklaerung": "Anders als im Deutschen rücken Fragewörter im Chinesischen nicht an den Satzanfang. Sie stehen an genau der Position, an der in der Antwort die erfragte Information steht: 什么 shénme (was), 谁 shéi (wer), 哪里/哪儿 nǎlǐ/nǎr (wo), 什么时候 shénme shíhou (wann), 为什么 wèishénme (warum), 怎么 zěnme (wie).",
+    "beispiele": [
+      { "zeichen": "你住在哪里？我住在北京。", "pinyin": "Nǐ zhù zài nǎlǐ? Wǒ zhù zài Běijīng.", "deutsch": "Wo wohnst du? – Ich wohne in Peking." },
+      { "zeichen": "你什么时候去我家？我周末去你家。", "pinyin": "Nǐ shénme shíhou qù wǒ jiā? Wǒ zhōumò qù nǐ jiā.", "deutsch": "Wann kommst du zu mir? – Ich komme am Wochenende." },
+      { "zeichen": "你们怎么去汉堡？我们坐火车去汉堡。", "pinyin": "Nǐmen zěnme qù Hànbǎo? Wǒmen zuò huǒchē qù Hànbǎo.", "deutsch": "Wie fahrt ihr nach Hamburg? – Wir fahren mit dem Zug." },
+      { "zeichen": "汉斯为什么不能来？汉斯打工，不能来。", "pinyin": "Hànsī wèishénme bù néng lái? Hànsī dǎgōng, bù néng lái.", "deutsch": "Warum kann Hans nicht kommen? – Hans jobbt, er kann nicht kommen." },
+      { "zeichen": "她叫什么名字？她叫安娜。", "pinyin": "Tā jiào shénme míngzi? Tā jiào Ānnà.", "deutsch": "Wie heißt sie? – Sie heißt Anna." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 9,
+    "lektion": "Lek 1–3",
+    "titel": "Uhrzeit: 点, 分, 刻, 差 und die Frage mit 几",
+    "struktur": "Zahl + 点 (+ Zahl + 分)",
+    "erklaerung": "Die Uhrzeit wird mit 点 diǎn (Stunde) angegeben, dazu 分 fēn (Minute), 刻 kè (Viertelstunde: 一刻 Viertel nach, 三刻 Dreiviertel) und 差 chà („fehlen“, z.B. 差一刻九点 Viertel vor neun). Nach der Uhrzeit fragt man mit 几点 jǐ diǎn. Für „zwei Uhr“ gilt 两点, nicht 二点.",
+    "beispiele": [
+      { "zeichen": "中午你几点吃午饭？", "pinyin": "Zhōngwǔ nǐ jǐ diǎn chī wǔfàn?", "deutsch": "Um wie viel Uhr isst du zu Mittag?" },
+      { "zeichen": "我有时候一点吃午饭。", "pinyin": "Wǒ yǒushíhou yì diǎn chī wǔfàn.", "deutsch": "Ich esse manchmal um ein Uhr zu Mittag." },
+      { "zeichen": "现在差一刻九点。", "pinyin": "Xiànzài chà yí kè jiǔ diǎn.", "deutsch": "Es ist jetzt Viertel vor neun." },
+      { "zeichen": "两点 / 两分钟 / 两个人", "pinyin": "liǎng diǎn / liǎng fēnzhōng / liǎng gè rén", "deutsch": "zwei Uhr / zwei Minuten / zwei Personen" }
+    ],
+    "merke": null
+  },
+  {
+    "id": 10,
+    "lektion": "Lek 1–3",
+    "titel": "Zeitadverbiale: Stellung im Satz",
+    "struktur": "Zeit + S + V oder S + Zeit + V",
+    "erklaerung": "Zeitadverbiale (heute, am Samstag, morgen Abend …) können vor oder nach dem Subjekt stehen – aber immer vor dem Verb und nie am Satzende. Anders als im Deutschen („am Samstag“) sind keine Präpositionen nötig.",
+    "beispiele": [
+      { "zeichen": "星期六我不工作。 / 我星期六不工作。", "pinyin": "Xīngqīliù wǒ bù gōngzuò. / Wǒ xīngqīliù bù gōngzuò.", "deutsch": "Samstags arbeite ich nicht." },
+      { "zeichen": "明天安娜和我去看电影。", "pinyin": "Míngtiān Ānnà hé wǒ qù kàn diànyǐng.", "deutsch": "Morgen gehen Anna und ich ins Kino." },
+      { "zeichen": "我今天晚上学英语。", "pinyin": "Wǒ jīntiān wǎnshang xué Yīngyǔ.", "deutsch": "Heute Abend lerne ich Englisch." },
+      { "zeichen": "我明天下午四点去听音乐会。", "pinyin": "Wǒ míngtiān xiàwǔ sì diǎn qù tīng yīnyuèhuì.", "deutsch": "Morgen um 16 Uhr gehe ich ins Konzert." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 11,
+    "lektion": "Lek 1–3",
+    "titel": "Verben als Attribut: V + 的 + N",
+    "struktur": "Verb(-phrase) + 的 + Nomen",
+    "erklaerung": "Wird ein Verb oder eine ganze Verbkonstruktion als Attribut vor ein Nomen gestellt, muss die strukturelle Partikel 的 de dazwischen stehen. So entstehen Ausdrücke wie 休息的时候 („die Zeit, in der man Pause macht“ = in der Pause) oder Relativsatz-artige Konstruktionen: 她穿的毛衣 „der Pullover, den sie trägt“.",
+    "beispiele": [
+      { "zeichen": "休息的时候你们做什么？", "pinyin": "Xiūxi de shíhou nǐmen zuò shénme?", "deutsch": "Was macht ihr in der Pause?" },
+      { "zeichen": "她穿的毛衣是蓝色的。", "pinyin": "Tā chuān de máoyī shì lánsè de.", "deutsch": "Der Pullover, den sie trägt, ist blau." },
+      { "zeichen": "你最喜欢吃的中国菜是什么？", "pinyin": "Nǐ zuì xǐhuan chī de Zhōngguó cài shì shénme?", "deutsch": "Welches chinesische Gericht isst du am liebsten?" }
+    ],
+    "merke": null
+  },
+  {
+    "id": 12,
+    "lektion": "Lek 1–3",
+    "titel": "有: Besitz und Existenz, Verneinung 没有",
+    "struktur": "Ort/Besitzer + 有 + Nomen",
+    "erklaerung": "有 yǒu drückt Besitz aus („haben“) und Existenz („es gibt“): Steht ein Ort vor 有, bedeutet der Satz „an diesem Ort gibt es …“. Die Verneinung lautet ausnahmslos 没有 méiyǒu – die Kombination 不有 existiert nicht.",
+    "beispiele": [
+      { "zeichen": "我家有四口人。", "pinyin": "Wǒ jiā yǒu sì kǒu rén.", "deutsch": "Meine Familie hat vier Personen." },
+      { "zeichen": "学校门口有一家咖啡馆。", "pinyin": "Xuéxiào ménkǒu yǒu yì jiā kāfēiguǎn.", "deutsch": "Am Eingang der Uni gibt es ein Café." },
+      { "zeichen": "我家没有中国茶。", "pinyin": "Wǒ jiā méiyǒu Zhōngguó chá.", "deutsch": "Bei mir zu Hause gibt es keinen chinesischen Tee." },
+      { "zeichen": "慕尼黑有中国超市。", "pinyin": "Mùníhēi yǒu Zhōngguó chāoshì.", "deutsch": "In München gibt es chinesische Supermärkte." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 13,
+    "lektion": "Lek 1–3",
+    "titel": "Fragen mit 有没有",
+    "struktur": "… 有没有 + Nomen？",
+    "erklaerung": "Statt 有…吗 kann man mit der affirmativ-negativen Form 有没有 fragen: „gibt es oder gibt es nicht?“. Beide Frageformen sind gleichwertig; 有没有 wird aber nur in Fragen verwendet, nie in Aussagesätzen.",
+    "beispiele": [
+      { "zeichen": "这儿有没有咖啡馆？", "pinyin": "Zhèr yǒu méiyǒu kāfēiguǎn?", "deutsch": "Gibt es hier ein Café?" },
+      { "zeichen": "这家商场有没有中国茶？", "pinyin": "Zhè jiā shāngchǎng yǒu méiyǒu Zhōngguó chá?", "deutsch": "Gibt es in diesem Kaufhaus chinesischen Tee?" },
+      { "zeichen": "学校有没有图书馆？", "pinyin": "Xuéxiào yǒu méiyǒu túshūguǎn?", "deutsch": "Hat die Schule eine Bibliothek?" }
+    ],
+    "merke": null
+  },
+  {
+    "id": 14,
+    "lektion": "Lek 1–3",
+    "titel": "Affirmativ-negative Fragen: V 不 V",
+    "struktur": "V + 不 + V？ · 是不是",
+    "erklaerung": "Neben 吗 gibt es die affirmativ-negative Frage: Das Verb wird positiv und negativ hintereinander gestellt (V不V). Sie entspricht der 吗-Frage, wirkt aber etwas direkter. Häufig: 是不是, 去不去, 有没有. 吗 und V不V dürfen nicht kombiniert werden.",
+    "beispiele": [
+      { "zeichen": "你去不去？", "pinyin": "Nǐ qù bu qù?", "deutsch": "Gehst du (oder nicht)?" },
+      { "zeichen": "德国的大学生是不是都要实习？", "pinyin": "Déguó de dàxuéshēng shì bu shì dōu yào shíxí?", "deutsch": "Müssen deutsche Studierende alle ein Praktikum machen?" },
+      { "zeichen": "今年是不是2000年？", "pinyin": "Jīnnián shì bu shì èr líng líng líng nián?", "deutsch": "Ist dieses Jahr das Jahr 2000?" }
+    ],
+    "merke": null
+  },
+  {
+    "id": 15,
+    "lektion": "Lek 4",
+    "titel": "Datum: Jahr, Monat, Tag und Wochentag",
+    "struktur": "X 年 + X 月 + X 号 + 星期 X",
+    "erklaerung": "Monate werden gebildet, indem 月 yuè an die Zahlen 1–12 angehängt wird (五月 Mai), Daten mit 号 hào an die Zahlen 1–31 (二十三号 der 23.). Wochentage sind 星期 xīngqī + Zahl (星期一 Montag … 星期六 Samstag), nur Sonntag ist 星期天/星期日. Gefragt wird mit 几: 几月几号？星期几？ Die Reihenfolge ist immer vom Großen zum Kleinen: Jahr – Monat – Tag – Wochentag.",
+    "beispiele": [
+      { "zeichen": "今天几月几号？今天五月二十三号。", "pinyin": "Jīntiān jǐ yuè jǐ hào? Jīntiān wǔ yuè èrshísān hào.", "deutsch": "Der Wievielte ist heute? – Heute ist der 23. Mai." },
+      { "zeichen": "明天星期几？明天星期六。", "pinyin": "Míngtiān xīngqī jǐ? Míngtiān xīngqīliù.", "deutsch": "Welcher Wochentag ist morgen? – Morgen ist Samstag." },
+      { "zeichen": "五月二十五号是星期天。", "pinyin": "Wǔ yuè èrshíwǔ hào shì xīngqītiān.", "deutsch": "Der 25. Mai ist ein Sonntag." },
+      { "zeichen": "这个月八号是星期四。", "pinyin": "Zhège yuè bā hào shì xīngqīsì.", "deutsch": "Der 8. dieses Monats ist ein Donnerstag." },
+      { "zeichen": "今年不是2000年，今年是2001年。", "pinyin": "Jīnnián bú shì èr líng líng líng nián, jīnnián shì èr líng líng yī nián.", "deutsch": "Dieses Jahr ist nicht 2000, sondern 2001." }
+    ],
+    "merke": "Jahreszahlen werden Ziffer für Ziffer gelesen: 2001年 èr líng líng yī nián. Zeitwörter: 今年 dieses Jahr, 去年 letztes Jahr, 这个月 dieser Monat, 上/下个星期 letzte/nächste Woche."
+  },
+  {
+    "id": 16,
+    "lektion": "Lek 4",
+    "titel": "Alter: 多大 und 岁",
+    "struktur": "S + 今年 + Zahl + 岁",
+    "erklaerung": "Die Frage nach dem Alter lautet 你今年多大？ („Wie alt bist du dieses Jahr?“). Die Antwort ist ein verbloser Satz: Zahl + 岁 suì (Jahre). Bei kleinen Kindern fragt man 几岁.",
+    "beispiele": [
+      { "zeichen": "你今年多大？我今年二十岁。", "pinyin": "Nǐ jīnnián duō dà? Wǒ jīnnián èrshí suì.", "deutsch": "Wie alt bist du? – Ich bin dieses Jahr 20." },
+      { "zeichen": "我弟弟今年25岁。", "pinyin": "Wǒ dìdi jīnnián èrshíwǔ suì.", "deutsch": "Mein jüngerer Bruder ist dieses Jahr 25." },
+      { "zeichen": "他和我一样大。", "pinyin": "Tā hé wǒ yíyàng dà.", "deutsch": "Er ist genauso alt wie ich." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 17,
+    "lektion": "Lek 4",
+    "titel": "Vorschläge: Fragen mit 好吗",
+    "struktur": "Aussagesatz + ，好吗？",
+    "erklaerung": "Hängt man 好吗 hǎo ma an einen Aussagesatz, wird daraus ein freundlicher Vorschlag oder eine Bitte um Zustimmung. Die Antwort ist meist 好 („gut, einverstanden“). 好吗 passt nur zu Sätzen, die einen Vorschlag ausdrücken können – nicht zu reinen Tatsachen.",
+    "beispiele": [
+      { "zeichen": "我们去购物，好吗？", "pinyin": "Wǒmen qù gòuwù, hǎo ma?", "deutsch": "Gehen wir einkaufen, okay?" },
+      { "zeichen": "我们去南京路，好吗？", "pinyin": "Wǒmen qù Nánjīng Lù, hǎo ma?", "deutsch": "Gehen wir zur Nanjing-Straße, einverstanden?" },
+      { "zeichen": "我们星期六去，好吗？", "pinyin": "Wǒmen xīngqīliù qù, hǎo ma?", "deutsch": "Gehen wir am Samstag, ja?" }
+    ],
+    "merke": null
+  },
+  {
+    "id": 18,
+    "lektion": "Lek 4",
+    "titel": "Zukunft mit dem Modalverb 要",
+    "struktur": "S (+ Zeit) + 要 + V + O",
+    "erklaerung": "Das Modalverb 要 yào steht vor einem anderen Verb und drückt eine feste Absicht oder zukünftige Handlung aus („wollen“, „werden“). Zeitangaben stehen vor oder nach dem Subjekt. 要 zeigt keine Vergangenheit an.",
+    "beispiele": [
+      { "zeichen": "今天我要去医院。", "pinyin": "Jīntiān wǒ yào qù yīyuàn.", "deutsch": "Heute werde ich ins Krankenhaus gehen." },
+      { "zeichen": "明天爸爸要去北京。", "pinyin": "Míngtiān bàba yào qù Běijīng.", "deutsch": "Morgen wird Papa nach Peking fahren." },
+      { "zeichen": "我星期三要学唱歌。", "pinyin": "Wǒ xīngqīsān yào xué chànggē.", "deutsch": "Am Mittwoch werde ich Singen lernen." },
+      { "zeichen": "妈妈晚上要工作。", "pinyin": "Māma wǎnshang yào gōngzuò.", "deutsch": "Mama muss heute Abend arbeiten." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 19,
+    "lektion": "Lek 4",
+    "titel": "听说 – „gehört haben, dass …“",
+    "struktur": "(我)听说 + Satz",
+    "erklaerung": "听说 tīngshuō (wörtlich „hören-sagen“) steht am Satzanfang oder nach dem Subjekt und markiert, dass die Information vom Hörensagen stammt: „Man sagt / ich habe gehört, dass …“.",
+    "beispiele": [
+      { "zeichen": "听说这家饭馆的烤鸭特别好。", "pinyin": "Tīngshuō zhè jiā fànguǎn de kǎoyā tèbié hǎo.", "deutsch": "Ich habe gehört, dass die Pekingente in diesem Restaurant besonders gut ist." },
+      { "zeichen": "我听说中国比美国大一点。", "pinyin": "Wǒ tīngshuō Zhōngguó bǐ Měiguó dà yìdiǎn.", "deutsch": "Ich habe gehört, dass China etwas größer ist als die USA." },
+      { "zeichen": "听说德国的小学生只上半天课，是吗？", "pinyin": "Tīngshuō Déguó de xiǎoxuéshēng zhǐ shàng bàntiān kè, shì ma?", "deutsch": "Ich habe gehört, deutsche Grundschüler haben nur halbtags Unterricht – stimmt das?" }
+    ],
+    "merke": null
+  },
+  {
+    "id": 20,
+    "lektion": "Lek 4",
+    "titel": "太……了 – „zu …“",
+    "struktur": "太 + Adjektiv + 了",
+    "erklaerung": "Die Konstruktion 太 tài + Adjektiv + 了 le drückt aus, dass eine Eigenschaft übermäßig stark ausgeprägt ist („zu …“, umgangssprachlich auch „total …“). Das 了 gehört fest zur Konstruktion.",
+    "beispiele": [
+      { "zeichen": "这条裤子太贵了。", "pinyin": "Zhè tiáo kùzi tài guì le.", "deutsch": "Diese Hose ist zu teuer." },
+      { "zeichen": "这双鞋太大了，我要小一点儿的。", "pinyin": "Zhè shuāng xié tài dà le, wǒ yào xiǎo yìdiǎnr de.", "deutsch": "Diese Schuhe sind zu groß, ich möchte etwas kleinere." },
+      { "zeichen": "因为今天太忙了，所以我不去商场。", "pinyin": "Yīnwèi jīntiān tài máng le, suǒyǐ wǒ bú qù shāngchǎng.", "deutsch": "Weil ich heute zu beschäftigt bin, gehe ich nicht ins Einkaufszentrum." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 21,
+    "lektion": "Lek 4",
+    "titel": "Ortsangaben mit 在 vor dem Verb",
+    "struktur": "S + 在 + Ort + V + O",
+    "erklaerung": "Die Präposition 在 zài („in, an, bei“) bildet mit einem Ort eine Ortsangabe, die vor dem Verb steht – nie danach wie im Deutschen. Reihenfolge: Subjekt – Zeit – 在+Ort – Verb – Objekt.",
+    "beispiele": [
+      { "zeichen": "我在北京的大学学习汉语。", "pinyin": "Wǒ zài Běijīng de dàxué xuéxí Hànyǔ.", "deutsch": "Ich lerne Chinesisch an einer Universität in Peking." },
+      { "zeichen": "他们在中国经常跟中国人说英语。", "pinyin": "Tāmen zài Zhōngguó jīngcháng gēn Zhōngguórén shuō Yīngyǔ.", "deutsch": "In China sprechen sie oft Englisch mit Chinesen." },
+      { "zeichen": "每个星期天比尔都在这里买东西。", "pinyin": "Měi gè xīngqītiān Bǐ'ěr dōu zài zhèlǐ mǎi dōngxi.", "deutsch": "Jeden Sonntag kauft Bill hier ein." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 22,
+    "lektion": "Lek 5",
+    "titel": "Zähleinheitswörter (ZEW)",
+    "struktur": "Zahl/这/那 + ZEW + Nomen",
+    "erklaerung": "Im Chinesischen steht zwischen einer Zahl (oder einem Demonstrativpronomen wie 这/那) und dem Nomen immer ein Zähleinheitswort (ZEW). Die wichtigsten: 个 gè (allgemein: Personen, Äpfel, Wochen), 件 jiàn (Oberbekleidung, Angelegenheiten: 衣服, 毛衣, 大衣), 条 tiáo (lange, schmale Dinge: 裤子, 裙子, 路), 双 shuāng (paarweise Dinge: 鞋, 袜子, 手), 家 jiā (Geschäfte, Restaurants), 份 fèn (Portionen), 位 wèi (Personen, höflich), 口 kǒu (Familienmitglieder), 张 zhāng (flache Dinge: 菜单, Bilder), 辆 liàng (Fahrzeuge), 本 běn (Bücher), 杯 bēi (Tassen/Gläser).",
+    "beispiele": [
+      { "zeichen": "一件毛衣 · 一条裤子 · 一双鞋", "pinyin": "yí jiàn máoyī · yì tiáo kùzi · yì shuāng xié", "deutsch": "ein Pullover · eine Hose · ein Paar Schuhe" },
+      { "zeichen": "一家饭馆 · 一份沙拉 · 一位老师", "pinyin": "yì jiā fànguǎn · yí fèn shālā · yí wèi lǎoshī", "deutsch": "ein Restaurant · eine Portion Salat · ein Lehrer (höflich)" },
+      { "zeichen": "我家有四口人。", "pinyin": "Wǒ jiā yǒu sì kǒu rén.", "deutsch": "Meine Familie hat vier Personen." },
+      { "zeichen": "我想给孩子买件衣服。", "pinyin": "Wǒ xiǎng gěi háizi mǎi jiàn yīfu.", "deutsch": "Ich möchte für mein Kind ein Kleidungsstück kaufen." },
+      { "zeichen": "这辆自行车要1000块钱。", "pinyin": "Zhè liàng zìxíngchē yào yìqiān kuài qián.", "deutsch": "Dieses Fahrrad kostet 1000 Kuai." },
+      { "zeichen": "安娜要了一份饺子和一个沙拉。", "pinyin": "Ānnà yào le yí fèn jiǎozi hé yí gè shālā.", "deutsch": "Anna bestellte eine Portion Jiaozi und einen Salat." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 23,
+    "lektion": "Lek 5",
+    "titel": "些 – unbestimmte Menge",
+    "struktur": "一/这/那/哪 + 些 + Nomen",
+    "erklaerung": "些 xiē ist ein Zähleinheitswort für unbestimmte Mengen. Es steht nach 一 (一些 „einige“), 这 (这些 „diese“), 那 (那些 „jene“) oder 哪 (哪些 „welche“) und macht das folgende Nomen zum Plural-Ausdruck.",
+    "beispiele": [
+      { "zeichen": "这些书多少钱？", "pinyin": "Zhèxiē shū duōshao qián?", "deutsch": "Wie viel kosten diese Bücher?" },
+      { "zeichen": "一些东西", "pinyin": "yìxiē dōngxi", "deutsch": "einige Sachen" },
+      { "zeichen": "哪些人 · 那些本子", "pinyin": "nǎxiē rén · nàxiē běnzi", "deutsch": "welche Leute · jene Hefte" }
+    ],
+    "merke": null
+  },
+  {
+    "id": 24,
+    "lektion": "Lek 5",
+    "titel": "二 vs. 两",
+    "struktur": "两 + ZEW · 二 in Zahlen/Ordinalzahlen",
+    "erklaerung": "Beide Zeichen bedeuten „zwei“: Vor Zähleinheitswörtern wird 两 liǎng benutzt (两个人, 两点, 两岁). 二 èr steht in mehrstelligen Zahlen (二十二 22, 十二 12) und Ordinalzahlen (第二 „der/die/das zweite“).",
+    "beispiele": [
+      { "zeichen": "两个人 · 两岁 · 两天", "pinyin": "liǎng gè rén · liǎng suì · liǎng tiān", "deutsch": "zwei Personen · zwei Jahre (alt) · zwei Tage" },
+      { "zeichen": "二十二个人 · 五十二岁", "pinyin": "èrshí'èr gè rén · wǔshí'èr suì", "deutsch": "22 Personen · 52 Jahre alt" },
+      { "zeichen": "第二天", "pinyin": "dì-èr tiān", "deutsch": "der zweite Tag" },
+      { "zeichen": "两件衣服 · 二十块钱 · 第二个人", "pinyin": "liǎng jiàn yīfu · èrshí kuài qián · dì-èr gè rén", "deutsch": "zwei Kleidungsstücke · 20 Kuai · die zweite Person" }
+    ],
+    "merke": null
+  },
+  {
+    "id": 25,
+    "lektion": "Lek 5",
+    "titel": "Preise: 多少钱 und Geldbeträge",
+    "struktur": "… 多少钱？ · Zahl + 块（钱）",
+    "erklaerung": "Die Frage nach dem Preis lautet 多少钱 duōshao qián („wie viel Geld?“). Geldbeträge werden mit 块 kuài (umgangssprachlich) bzw. 元 yuán (schriftlich) angegeben. 多少 wird für beliebig große Zahlen benutzt, 几 nur für kleine (unter zehn erwartete) Mengen.",
+    "beispiele": [
+      { "zeichen": "这条裤子多少钱？", "pinyin": "Zhè tiáo kùzi duōshao qián?", "deutsch": "Wie viel kostet diese Hose?" },
+      { "zeichen": "这条裤子比那条便宜，四十块。", "pinyin": "Zhè tiáo kùzi bǐ nà tiáo piányi, sìshí kuài.", "deutsch": "Diese Hose ist billiger als jene, 40 Kuai." },
+      { "zeichen": "这辆自行车要1000块钱。", "pinyin": "Zhè liàng zìxíngchē yào yìqiān kuài qián.", "deutsch": "Dieses Fahrrad kostet 1000 Kuai." },
+      { "zeichen": "三个人一共花了一百二十块。", "pinyin": "Sān gè rén yígòng huā le yìbǎi èrshí kuài.", "deutsch": "Die drei haben zusammen 120 Kuai ausgegeben." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 26,
+    "lektion": "Lek 5",
+    "titel": "Vollendete Handlung mit 了",
+    "struktur": "S + V + 了 (+ Menge/Dauer) + O",
+    "erklaerung": "Die Partikel 了 le steht direkt nach dem Verb und gibt die Vollendung einer Handlung an. Nach 了 folgt oft eine Mengen- oder Zeitdauer-Angabe. Bei Verb + Objekt + Dauer wird das Verb wiederholt: 我学汉语学了一年. Die Verneinung erfolgt mit 没 (ohne 了): 我没买.",
+    "beispiele": [
+      { "zeichen": "上个星期天我买了两件衣服。", "pinyin": "Shàng gè xīngqītiān wǒ mǎi le liǎng jiàn yīfu.", "deutsch": "Letzten Sonntag habe ich zwei Kleidungsstücke gekauft." },
+      { "zeichen": "他去了北京。", "pinyin": "Tā qù le Běijīng.", "deutsch": "Er ist nach Peking gefahren." },
+      { "zeichen": "我在美国住了三年。", "pinyin": "Wǒ zài Měiguó zhù le sān nián.", "deutsch": "Ich habe drei Jahre in den USA gewohnt." },
+      { "zeichen": "我学汉语学了一年。", "pinyin": "Wǒ xué Hànyǔ xué le yì nián.", "deutsch": "Ich habe ein Jahr lang Chinesisch gelernt." },
+      { "zeichen": "因为这件毛衣很合适，所以我买了。", "pinyin": "Yīnwèi zhè jiàn máoyī hěn héshì, suǒyǐ wǒ mǎi le.", "deutsch": "Weil dieser Pullover gut passt, habe ich ihn gekauft." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 27,
+    "lektion": "Lek 5",
+    "titel": "Modalverben 会, 能 und 可以",
+    "struktur": "S + 会/能/可以 + V + O",
+    "erklaerung": "会 huì drückt eine erlernte Fähigkeit aus (sprechen, tanzen, kochen). 能 néng drückt eine situative Möglichkeit aus („können“ im Sinne von „in der Lage sein / die Umstände erlauben es“). 可以 kěyǐ drückt Erlaubnis oder Möglichkeit aus („dürfen, können“). Verneint wird meist mit 不会 / 不能.",
+    "beispiele": [
+      { "zeichen": "我们会唱中文歌。", "pinyin": "Wǒmen huì chàng Zhōngwén gē.", "deutsch": "Wir können chinesische Lieder singen." },
+      { "zeichen": "她会跳舞吗？", "pinyin": "Tā huì tiàowǔ ma?", "deutsch": "Kann sie tanzen?" },
+      { "zeichen": "他明天不能来。", "pinyin": "Tā míngtiān bù néng lái.", "deutsch": "Er kann morgen nicht kommen." },
+      { "zeichen": "马克可以和你一起去。", "pinyin": "Mǎkè kěyǐ hé nǐ yìqǐ qù.", "deutsch": "Mark kann mit dir zusammen gehen." },
+      { "zeichen": "大学图书馆能上网吗？", "pinyin": "Dàxué túshūguǎn néng shàngwǎng ma?", "deutsch": "Kann man in der Universitätsbibliothek ins Internet gehen?" }
+    ],
+    "merke": null
+  },
+  {
+    "id": 28,
+    "lektion": "Lek 5",
+    "titel": "想 – „möchten“",
+    "struktur": "S + 想 + V + O",
+    "erklaerung": "Das Modalverb 想 xiǎng steht vor dem Hauptverb und drückt einen Wunsch oder eine Absicht aus („möchten“). Es ist weicher als 要 yào. Verneinung: 不想.",
+    "beispiele": [
+      { "zeichen": "我想给孩子买件衣服。", "pinyin": "Wǒ xiǎng gěi háizi mǎi jiàn yīfu.", "deutsch": "Ich möchte für mein Kind ein Kleidungsstück kaufen." },
+      { "zeichen": "我们今天晚上想去饭馆吃饭。", "pinyin": "Wǒmen jīntiān wǎnshang xiǎng qù fànguǎn chīfàn.", "deutsch": "Wir möchten heute Abend im Restaurant essen gehen." },
+      { "zeichen": "你想点什么？", "pinyin": "Nǐ xiǎng diǎn shénme?", "deutsch": "Was möchtest du bestellen?" }
+    ],
+    "merke": null
+  },
+  {
+    "id": 29,
+    "lektion": "Lek 5",
+    "titel": "Vergleich mit 比",
+    "struktur": "A + 比 + B + Adjektiv",
+    "erklaerung": "Mit der Präposition 比 bǐ werden zwei Dinge verglichen: A 比 B + Adjektiv bedeutet „A ist (Adjektiv)-er als B“. Vor dem Adjektiv darf kein 很 stehen; zur Verstärkung dient 更 gèng („noch …er“). Kommt dasselbe Hauptnomen in A und B vor, kann es beim zweiten Mal entfallen: 这件衣服比那件（衣服）贵.",
+    "beispiele": [
+      { "zeichen": "这件衣服比那件贵。", "pinyin": "Zhè jiàn yīfu bǐ nà jiàn guì.", "deutsch": "Dieses Kleidungsstück ist teurer als jenes." },
+      { "zeichen": "妹妹比姐姐漂亮。", "pinyin": "Mèimei bǐ jiějie piàoliang.", "deutsch": "Die jüngere Schwester ist hübscher als die ältere." },
+      { "zeichen": "这条裤子比那条更贵。", "pinyin": "Zhè tiáo kùzi bǐ nà tiáo gèng guì.", "deutsch": "Diese Hose ist noch teurer als jene." },
+      { "zeichen": "柏林比慕尼黑大。", "pinyin": "Bólín bǐ Mùníhēi dà.", "deutsch": "Berlin ist größer als München." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 30,
+    "lektion": "Lek 5",
+    "titel": "Vergleich mit Maßangabe",
+    "struktur": "A + 比 + B + Adj + Maß/一点儿/得多",
+    "erklaerung": "Im 比-Satz kann nach dem Adjektiv angegeben werden, wie groß der Unterschied ist: eine konkrete Maßangabe (高5公分 „5 cm größer“), 一点儿 yìdiǎnr („etwas“) oder 得多 de duō („viel“).",
+    "beispiele": [
+      { "zeichen": "他比我高5公分。", "pinyin": "Tā bǐ wǒ gāo wǔ gōngfēn.", "deutsch": "Er ist 5 cm größer als ich." },
+      { "zeichen": "我听说中国比美国大一点。", "pinyin": "Wǒ tīngshuō Zhōngguó bǐ Měiguó dà yìdiǎn.", "deutsch": "Ich habe gehört, dass China etwas größer ist als die USA." },
+      { "zeichen": "他比我瘦得多。", "pinyin": "Tā bǐ wǒ shòu de duō.", "deutsch": "Er ist viel dünner als ich." },
+      { "zeichen": "他比我胖一点儿。", "pinyin": "Tā bǐ wǒ pàng yìdiǎnr.", "deutsch": "Er ist etwas dicker als ich." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 31,
+    "lektion": "Lek 5",
+    "titel": "Verneinter Vergleich: A 没有 B + Adjektiv",
+    "struktur": "A + 没有 + B + Adjektiv",
+    "erklaerung": "没有 méiyǒu im Vergleichssatz zeigt an, dass A vom Grad her niedriger ist als B: „A ist nicht so … wie B“. Der Satz 那件衣服没有这件贵 entspricht damit 这件衣服比那件贵 aus umgekehrter Perspektive.",
+    "beispiele": [
+      { "zeichen": "那件衣服没有这件贵。", "pinyin": "Nà jiàn yīfu méiyǒu zhè jiàn guì.", "deutsch": "Jenes Kleidungsstück ist nicht so teuer wie dieses." },
+      { "zeichen": "姐姐没有妹妹漂亮。", "pinyin": "Jiějie méiyǒu mèimei piàoliang.", "deutsch": "Die ältere Schwester ist nicht so hübsch wie die jüngere." },
+      { "zeichen": "慕尼黑没有柏林大。", "pinyin": "Mùníhēi méiyǒu Bólín dà.", "deutsch": "München ist nicht so groß wie Berlin." },
+      { "zeichen": "他长得没有我胖。", "pinyin": "Tā zhǎng de méiyǒu wǒ pàng.", "deutsch": "Er ist nicht so dick (gewachsen) wie ich." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 32,
+    "lektion": "Lek 5",
+    "titel": "Gleichheit: A 跟/和 B 一样 (+ Adjektiv)",
+    "struktur": "A + 跟/和 + B + 一样 (+ Adj)",
+    "erklaerung": "Der Satz A 跟 gēn (oder 和 hé) B 一样 yíyàng drückt aus, dass A und B gleich sind. Mit folgendem Adjektiv: „A ist genauso … wie B“ (一样大 genauso groß). Verneint wird mit 不一样 („nicht gleich“).",
+    "beispiele": [
+      { "zeichen": "这件跟那件一样吗？", "pinyin": "Zhè jiàn gēn nà jiàn yíyàng ma?", "deutsch": "Ist dieses (Stück) genauso wie jenes?" },
+      { "zeichen": "这件跟那件一样大。", "pinyin": "Zhè jiàn gēn nà jiàn yíyàng dà.", "deutsch": "Dieses ist genauso groß wie jenes." },
+      { "zeichen": "这件毛衣和那件一样贵。", "pinyin": "Zhè jiàn máoyī hé nà jiàn yíyàng guì.", "deutsch": "Dieser Pullover ist genauso teuer wie jener." },
+      { "zeichen": "她和他一样高。", "pinyin": "Tā hé tā yíyàng gāo.", "deutsch": "Sie ist genauso groß wie er." },
+      { "zeichen": "这件跟那件不一样。这是进口的，意大利的。", "pinyin": "Zhè jiàn gēn nà jiàn bù yíyàng. Zhè shì jìnkǒu de, Yìdàlì de.", "deutsch": "Dieses ist anders als jenes. Dieses ist importiert, aus Italien." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 33,
+    "lektion": "Lek 5",
+    "titel": "Vergleich mit Verbalprädikat: V 得 比 B + Adjektiv",
+    "struktur": "A + V + 得 + 比 B + Adj",
+    "erklaerung": "Die Präposition 比 wird auch in Sätzen mit Verbalprädikat und der Komplement-Partikel 得 de eingesetzt: A + Verb + 得 + 比 B + Adjektiv. Die verneinte Variante benutzt 没有: 他长得没有我高.",
+    "beispiele": [
+      { "zeichen": "他长得比你高吗？", "pinyin": "Tā zhǎng de bǐ nǐ gāo ma?", "deutsch": "Ist er größer (gewachsen) als du?" },
+      { "zeichen": "他说得比我好一点儿。", "pinyin": "Tā shuō de bǐ wǒ hǎo yìdiǎnr.", "deutsch": "Er spricht etwas besser als ich." },
+      { "zeichen": "我们关得比别人晚。", "pinyin": "Wǒmen guān de bǐ biérén wǎn.", "deutsch": "Wir schließen später als die anderen." },
+      { "zeichen": "他长得比我瘦得多。", "pinyin": "Tā zhǎng de bǐ wǒ shòu de duō.", "deutsch": "Er ist viel dünner (gewachsen) als ich." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 34,
+    "lektion": "Lek 5",
+    "titel": "Hervorhebung mit 是……的",
+    "struktur": "S + 是 + Zeit/Ort/Art + V + 的",
+    "erklaerung": "Mit der Konstruktion 是…的 wird ein bestimmter Aspekt – Zeit, Ort, Art und Weise oder Urheber – einer meist in der Vergangenheit liegenden Handlung hervorgehoben. 是 steht nach dem Subjekt (und kann umgangssprachlich entfallen), 的 steht am Satzende.",
+    "beispiele": [
+      { "zeichen": "这双运动鞋是在哪儿买的？", "pinyin": "Zhè shuāng yùndòngxié shì zài nǎr mǎi de?", "deutsch": "Wo wurden diese Sportschuhe gekauft?" },
+      { "zeichen": "她的中文是在上中学的时候学的。", "pinyin": "Tā de Zhōngwén shì zài shàng zhōngxué de shíhou xué de.", "deutsch": "Ihr Chinesisch hat sie während der Mittelschulzeit gelernt." },
+      { "zeichen": "你（是）怎么来的？我（是）开车来的。", "pinyin": "Nǐ (shì) zěnme lái de? Wǒ (shì) kāichē lái de.", "deutsch": "Wie bist du gekommen? – Ich bin mit dem Auto gekommen." },
+      { "zeichen": "他是和同学们一起来的。", "pinyin": "Tā shì hé tóngxuémen yìqǐ lái de.", "deutsch": "Er ist zusammen mit seinen Kommilitonen gekommen." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 35,
+    "lektion": "Lek 5",
+    "titel": "Superlativ mit 最",
+    "struktur": "最 + Adjektiv/Verb",
+    "erklaerung": "最 zuì steht vor einem Adjektiv oder einem Verb des Mögens/Wollens und bildet den Superlativ: 最好 „am besten“, 最漂亮 „am schönsten“, 最喜欢 „am liebsten mögen“. Es steht immer vor dem Adjektiv/Verb, nie danach.",
+    "beispiele": [
+      { "zeichen": "我最喜欢黑色的衣服。", "pinyin": "Wǒ zuì xǐhuan hēisè de yīfu.", "deutsch": "Ich mag schwarze Kleidung am liebsten." },
+      { "zeichen": "北大、清华是中国最有名的学校。", "pinyin": "Běidà, Qīnghuá shì Zhōngguó zuì yǒumíng de xuéxiào.", "deutsch": "Die Peking-Universität und Tsinghua sind Chinas berühmteste Hochschulen." },
+      { "zeichen": "你最喜欢吃的中国菜是什么？", "pinyin": "Nǐ zuì xǐhuan chī de Zhōngguó cài shì shénme?", "deutsch": "Welches chinesische Gericht isst du am liebsten?" }
+    ],
+    "merke": null
+  },
+  {
+    "id": 36,
+    "lektion": "Lek 5",
+    "titel": "Nominalphrasen mit 的 (Hauptnomen entfällt)",
+    "struktur": "Attribut + 的 (+ Nomen)",
+    "erklaerung": "的 de wird nach einem Attribut (Nomen, Pronomen oder Adjektiv) verwendet, um eine Nominalphrase zu bilden: 黑色的裙子 „schwarzer Rock“. Ist das Hauptnomen aus dem Kontext bekannt, kann es entfallen, um Wiederholung zu vermeiden: 她喜欢白色的 „Sie mag weiße (Röcke)“, 这是我的 „Das ist meins“.",
+    "beispiele": [
+      { "zeichen": "我喜欢黑色的裙子。", "pinyin": "Wǒ xǐhuan hēisè de qúnzi.", "deutsch": "Ich mag schwarze Röcke." },
+      { "zeichen": "她喜欢白色的。", "pinyin": "Tā xǐhuan báisè de.", "deutsch": "Sie mag weiße." },
+      { "zeichen": "玛丽喜欢吃甜的。", "pinyin": "Mǎlì xǐhuan chī tián de.", "deutsch": "Marie isst gern Süßes." },
+      { "zeichen": "红的我不喜欢，有黑的吗？", "pinyin": "Hóng de wǒ bù xǐhuan, yǒu hēi de ma?", "deutsch": "Rote mag ich nicht – haben Sie schwarze?" },
+      { "zeichen": "这不是你的书，这是我的。", "pinyin": "Zhè bú shì nǐ de shū, zhè shì wǒ de.", "deutsch": "Das ist nicht dein Buch, das ist meins." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 37,
+    "lektion": "Lek 5",
+    "titel": "Verbverdoppelung",
+    "struktur": "V + V · V + 一 + V",
+    "erklaerung": "Die Verbverdoppelung wird eingesetzt, um Vorschläge oder Wünsche abzumildern und beiläufiger klingen zu lassen („mal, ein bisschen“). Zwischen die verdoppelten Verben kann 一 yī treten (试一试 = 试试), was den Ton zusätzlich mildert.",
+    "beispiele": [
+      { "zeichen": "听听音乐吧。", "pinyin": "Tīngting yīnyuè ba.", "deutsch": "Hör doch ein bisschen Musik." },
+      { "zeichen": "看一看吧。", "pinyin": "Kàn yi kàn ba.", "deutsch": "Schau doch mal." },
+      { "zeichen": "我可以试一试吗？", "pinyin": "Wǒ kěyǐ shì yi shì ma?", "deutsch": "Darf ich mal anprobieren?" },
+      { "zeichen": "让我来试一试。", "pinyin": "Ràng wǒ lái shì yi shì.", "deutsch": "Lass mich mal versuchen." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 38,
+    "lektion": "Lek 6",
+    "titel": "Erfahrung mit 过",
+    "struktur": "S + V + 过 + O · S + 没 + V + 过 + O",
+    "erklaerung": "Die Partikel 过 guo steht immer direkt nach dem Verb und drückt aus, dass eine Handlung schon einmal (mindestens einmal) erlebt wurde. Die Verneinung wird mit 没 méi vor dem Verb gebildet – 过 bleibt dabei stehen: 没去过 „noch nie dort gewesen“.",
+    "beispiele": [
+      { "zeichen": "她去过意大利。", "pinyin": "Tā qù guo Yìdàlì.", "deutsch": "Sie war schon einmal in Italien." },
+      { "zeichen": "我吃过日本菜。", "pinyin": "Wǒ chī guo Rìběncài.", "deutsch": "Ich habe schon einmal japanisch gegessen." },
+      { "zeichen": "她没去过意大利。", "pinyin": "Tā méi qù guo Yìdàlì.", "deutsch": "Sie war noch nie in Italien." },
+      { "zeichen": "他学过中文。", "pinyin": "Tā xué guo Zhōngwén.", "deutsch": "Er hat schon mal Chinesisch gelernt." },
+      { "zeichen": "你和你家人来过中国吗？", "pinyin": "Nǐ hé nǐ jiārén lái guo Zhōngguó ma?", "deutsch": "Warst du mit deiner Familie schon einmal in China?" },
+      { "zeichen": "她没做过护士。", "pinyin": "Tā méi zuò guo hùshi.", "deutsch": "Sie hat noch nie als Krankenschwester gearbeitet." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 39,
+    "lektion": "Lek 6",
+    "titel": "Alternativfragen mit 还是",
+    "struktur": "A + 还是 + B？",
+    "erklaerung": "还是 háishì („oder“) verbindet zwei Alternativen in Fragen. Der Satz braucht kein zusätzliches 吗. Wird vor und nach 还是 dasselbe Verb verwendet, kann das zweite entfallen: 我们喝茶还是（喝）咖啡？ In Aussagesätzen wird „oder“ dagegen mit 或者 huòzhě ausgedrückt.",
+    "beispiele": [
+      { "zeichen": "你想喝茶还是喝啤酒？", "pinyin": "Nǐ xiǎng hē chá háishì hē píjiǔ?", "deutsch": "Möchtest du Tee oder Bier trinken?" },
+      { "zeichen": "你叫汉斯还是马克？", "pinyin": "Nǐ jiào Hànsī háishì Mǎkè?", "deutsch": "Heißt du Hans oder Mark?" },
+      { "zeichen": "我们喝茶还是咖啡？", "pinyin": "Wǒmen hē chá háishì kāfēi?", "deutsch": "Trinken wir Tee oder Kaffee?" },
+      { "zeichen": "今天你们去大学还是明天去？", "pinyin": "Jīntiān nǐmen qù dàxué háishì míngtiān qù?", "deutsch": "Geht ihr heute zur Uni oder morgen?" },
+      { "zeichen": "她是你姐姐还是你妹妹？", "pinyin": "Tā shì nǐ jiějie háishì nǐ mèimei?", "deutsch": "Ist sie deine ältere oder deine jüngere Schwester?" }
+    ],
+    "merke": null
+  },
+  {
+    "id": 40,
+    "lektion": "Lek 6",
+    "titel": "又……又…… – „sowohl … als auch …“",
+    "struktur": "又 + Adj/V + 又 + Adj/V",
+    "erklaerung": "Die Struktur 又 yòu … 又 yòu … verbindet zwei Eigenschaften oder Fähigkeiten, die gleichzeitig zutreffen: „sowohl … als auch …“. Sie steht vor Adjektiven oder Verben.",
+    "beispiele": [
+      { "zeichen": "这家饭馆的菜又好吃又便宜。", "pinyin": "Zhè jiā fànguǎn de cài yòu hǎochī yòu piányi.", "deutsch": "Das Essen in diesem Restaurant ist lecker und günstig zugleich." },
+      { "zeichen": "他又会做菜又会点菜。", "pinyin": "Tā yòu huì zuòcài yòu huì diǎncài.", "deutsch": "Er kann sowohl kochen als auch (gut) bestellen." },
+      { "zeichen": "她又喜欢喝茶又喜欢看书。", "pinyin": "Tā yòu xǐhuan hē chá yòu xǐhuan kàn shū.", "deutsch": "Sie trinkt gern Tee und liest gern." },
+      { "zeichen": "我觉得今天买的东西又好看又便宜。", "pinyin": "Wǒ juéde jīntiān mǎi de dōngxi yòu hǎokàn yòu piányi.", "deutsch": "Ich finde, die heute gekauften Sachen sind schön und günstig zugleich." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 41,
+    "lektion": "Lek 6",
+    "titel": "一边……一边…… – Gleichzeitigkeit",
+    "struktur": "S + 一边 + V₁ + 一边 + V₂",
+    "erklaerung": "Mit 一边 yìbiān … 一边 yìbiān … werden zwei Handlungen verbunden, die gleichzeitig ablaufen: „während … zugleich …“. Beide 一边 stehen jeweils direkt vor einem Verb.",
+    "beispiele": [
+      { "zeichen": "他一边吃饭一边看电视。", "pinyin": "Tā yìbiān chīfàn yìbiān kàn diànshì.", "deutsch": "Er isst und sieht dabei fern." },
+      { "zeichen": "他一边画画儿，一边说中文。", "pinyin": "Tā yìbiān huà huàr, yìbiān shuō Zhōngwén.", "deutsch": "Er malt und spricht dabei Chinesisch." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 42,
+    "lektion": "Lek 6",
+    "titel": "因为……所以…… – „weil … deshalb …“",
+    "struktur": "因为 + Grund，所以 + Folge",
+    "erklaerung": "Kausalsätze werden mit dem Paar 因为 yīnwèi („weil“) und 所以 suǒyǐ („deshalb“) gebildet. Anders als im Deutschen werden in der Regel beide Konjunktionen verwendet: 因为…，所以….",
+    "beispiele": [
+      { "zeichen": "因为今天太忙了，所以我不去商场。", "pinyin": "Yīnwèi jīntiān tài máng le, suǒyǐ wǒ bú qù shāngchǎng.", "deutsch": "Weil ich heute zu beschäftigt bin, gehe ich nicht ins Einkaufszentrum." },
+      { "zeichen": "因为这件毛衣太贵了，所以我没买。", "pinyin": "Yīnwèi zhè jiàn máoyī tài guì le, suǒyǐ wǒ méi mǎi.", "deutsch": "Weil dieser Pullover zu teuer war, habe ich ihn nicht gekauft." },
+      { "zeichen": "因为这件毛衣很合适，所以我买了。", "pinyin": "Yīnwèi zhè jiàn máoyī hěn héshì, suǒyǐ wǒ mǎi le.", "deutsch": "Weil dieser Pullover gut passt, habe ich ihn gekauft." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 43,
+    "lektion": "Lek 6",
+    "titel": "有的……有的…… – „manche … manche …“",
+    "struktur": "有的 + N …，有的 + N …",
+    "erklaerung": "有的 yǒude („manche“) vor einem Nomen teilt eine Gruppe in Teilgruppen auf: 有的人…，有的人… „manche Leute …, andere …“. Das Nomen kann beim zweiten 有的 entfallen.",
+    "beispiele": [
+      { "zeichen": "有的人喝咖啡，有的人吸烟。", "pinyin": "Yǒude rén hē kāfēi, yǒude rén xī yān.", "deutsch": "Manche trinken Kaffee, manche rauchen." },
+      { "zeichen": "有的中国人是汉语老师，有的是中餐馆的老板。", "pinyin": "Yǒude Zhōngguórén shì Hànyǔ lǎoshī, yǒude shì zhōngcānguǎn de lǎobǎn.", "deutsch": "Manche Chinesen sind Chinesischlehrer, manche sind Besitzer chinesischer Restaurants." },
+      { "zeichen": "在德国有的大学生也有车。", "pinyin": "Zài Déguó yǒude dàxuéshēng yě yǒu chē.", "deutsch": "In Deutschland haben manche Studierende auch ein Auto." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 44,
+    "lektion": "Lek 6",
+    "titel": "每……都 – „jede(r) …“",
+    "struktur": "每 + ZEW + N + 都 + V",
+    "erklaerung": "每 měi („jeder/jede/jedes“) steht mit Zähleinheitswort vor dem Nomen und wird im Satz fast immer durch 都 dōu („alle“) vor dem Verb ergänzt: 每个周末…都… „jedes Wochenende …“.",
+    "beispiele": [
+      { "zeichen": "每个星期天比尔都在这里买东西。", "pinyin": "Měi gè xīngqītiān Bǐ'ěr dōu zài zhèlǐ mǎi dōngxi.", "deutsch": "Jeden Sonntag kauft Bill hier ein." },
+      { "zeichen": "每个周末这里都有很多人。", "pinyin": "Měi gè zhōumò zhèlǐ dōu yǒu hěn duō rén.", "deutsch": "Jedes Wochenende sind hier viele Leute." },
+      { "zeichen": "中国的小学生人人都学书法。", "pinyin": "Zhōngguó de xiǎoxuéshēng rénrén dōu xué shūfǎ.", "deutsch": "In China lernen alle Grundschüler Kalligrafie." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 45,
+    "lektion": "Lek 6",
+    "titel": "Das Adverb 都",
+    "struktur": "S + 都 + V",
+    "erklaerung": "都 dōu bedeutet „alle/beide“ und steht immer nach dem Wort, auf das es sich bezieht, und vor dem Verb. Auch vorangestellte Objekte können mit 都 zusammengefasst werden: 这两个我都喜欢 „Diese beiden mag ich beide“.",
+    "beispiele": [
+      { "zeichen": "大家都喜欢喝啤酒。", "pinyin": "Dàjiā dōu xǐhuan hē píjiǔ.", "deutsch": "Alle trinken gern Bier." },
+      { "zeichen": "这两个我都喜欢。", "pinyin": "Zhè liǎng gè wǒ dōu xǐhuan.", "deutsch": "Diese beiden mag ich beide." },
+      { "zeichen": "北京和上海都有德国中学。", "pinyin": "Běijīng hé Shànghǎi dōu yǒu Déguó zhōngxué.", "deutsch": "In Peking und Shanghai gibt es (beide) deutsche Mittelschulen." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 46,
+    "lektion": "Lek 6",
+    "titel": "一点儿 vs. 有点儿",
+    "struktur": "Adj + 一点儿 · 有点儿 + Adj",
+    "erklaerung": "一点儿 yìdiǎnr („ein bisschen“) steht nach dem Adjektiv und wird bei Vergleichen und Wünschen benutzt: 大一点 „etwas größer“, 我要小一点儿的 „ich möchte etwas Kleineres“. 有点儿 yǒudiǎnr steht vor dem Adjektiv und drückt eine als unangenehm empfundene Eigenschaft aus: 有点儿贵 „(leider) etwas teuer“.",
+    "beispiele": [
+      { "zeichen": "这双鞋太大了，我要小一点儿的。", "pinyin": "Zhè shuāng xié tài dà le, wǒ yào xiǎo yìdiǎnr de.", "deutsch": "Diese Schuhe sind zu groß, ich möchte etwas kleinere." },
+      { "zeichen": "这件毛衣有点儿小。", "pinyin": "Zhè jiàn máoyī yǒudiǎnr xiǎo.", "deutsch": "Dieser Pullover ist etwas (zu) klein." },
+      { "zeichen": "他说得比我好一点儿。", "pinyin": "Tā shuō de bǐ wǒ hǎo yìdiǎnr.", "deutsch": "Er spricht etwas besser als ich." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 47,
+    "lektion": "Lek 6",
+    "titel": "……以后 – „nach …“",
+    "struktur": "V/Ereignis + 以后 + Satz",
+    "erklaerung": "以后 yǐhòu („nach, danach“) steht – anders als das deutsche „nach“ – hinter dem Ereignis: 吃饭以后 „nach dem Essen“. Die ganze Zeitangabe steht wie üblich vor dem Verb, meist am Satzanfang.",
+    "beispiele": [
+      { "zeichen": "吃饭以后你做什么？", "pinyin": "Chīfàn yǐhòu nǐ zuò shénme?", "deutsch": "Was machst du nach dem Essen?" },
+      { "zeichen": "吃饭以后我回家。", "pinyin": "Chīfàn yǐhòu wǒ huí jiā.", "deutsch": "Nach dem Essen gehe ich nach Hause." }
+    ],
+    "merke": null
+  },
+  {
+    "id": 48,
+    "lektion": "Lek 6",
+    "titel": "Präpositionen 给, 跟, 和",
+    "struktur": "S + 给/跟/和 + Person + V + O",
+    "erklaerung": "Präpositionalphrasen stehen im Chinesischen vor dem Verb: 给 gěi („für jemanden“), 跟 gēn („mit jemandem“, z.B. sprechen), 和 hé … 一起 yìqǐ („zusammen mit“). Deutsche Nachstellungen wie „ich kaufe etwas für das Kind“ werden also umgestellt: 我给孩子买….",
+    "beispiele": [
+      { "zeichen": "我想给孩子买件衣服。", "pinyin": "Wǒ xiǎng gěi háizi mǎi jiàn yīfu.", "deutsch": "Ich möchte für mein Kind ein Kleidungsstück kaufen." },
+      { "zeichen": "他们经常跟中国人说英语。", "pinyin": "Tāmen jīngcháng gēn Zhōngguórén shuō Yīngyǔ.", "deutsch": "Sie sprechen oft Englisch mit Chinesen." },
+      { "zeichen": "周末我和朋友一起去看电影。", "pinyin": "Zhōumò wǒ hé péngyou yìqǐ qù kàn diànyǐng.", "deutsch": "Am Wochenende gehe ich zusammen mit Freunden ins Kino." }
+    ],
+    "merke": null
+  }
+]

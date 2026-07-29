@@ -11,6 +11,10 @@ const DEFAULT_STATE = {
   srs: {},
   // Aktivität pro Tag: { "2026-06-12": { reviews: 12, newCards: 5 } }
   log: {},
+  // Angepasste Wörterlisten pro Lektion (nur geänderte Lektionen gespeichert).
+  customVocab: {},
+  // Grammatik-Fortschritt pro Thema: { [topicId]: { correct, wrong } }
+  grammar: {},
   // Zeitpunkt der letzten lokalen Änderung (ms). Dient beim geräteübergreifenden
   // Merge als Tie-Break für die Einstellungen (jüngerer Stand gewinnt).
   updatedAt: 0,
@@ -42,6 +46,8 @@ export function loadState() {
       ...structuredClone(DEFAULT_STATE),
       ...parsed,
       srs,
+      customVocab: parsed.customVocab ?? {},
+      grammar: parsed.grammar ?? {},
       settings: { ...DEFAULT_STATE.settings, ...(parsed.settings ?? {}) },
     };
   } catch {
@@ -92,12 +98,37 @@ export function mergeStates(a, b) {
       : rb;
   }
 
+  // --- grammar: pro Thema das jeweils höhere Zähler-Maximum (wie log) ---
+  const grammar = { ...(a.grammar ?? {}) };
+  for (const [id, gb] of Object.entries(b.grammar ?? {})) {
+    const ga = grammar[id];
+    grammar[id] = ga
+      ? {
+          correct: Math.max(ga.correct ?? 0, gb.correct ?? 0),
+          wrong: Math.max(ga.wrong ?? 0, gb.wrong ?? 0),
+        }
+      : gb;
+  }
+
   // --- settings + updatedAt: jüngerer Gesamtstand gewinnt ---
   const aNewer = (a.updatedAt ?? 0) >= (b.updatedAt ?? 0);
   const settings = aNewer ? a.settings : b.settings;
+  const customVocab = (aNewer ? a : b).customVocab ?? {};
   const updatedAt = Math.max(a.updatedAt ?? 0, b.updatedAt ?? 0);
 
-  return { srs, log, settings, updatedAt };
+  return { srs, log, settings, customVocab, grammar, updatedAt };
+}
+
+// Grammatik-Ergebnis eines Themas festhalten (richtig/falsch hochzählen).
+export function bumpGrammar(grammar, topicId, correct) {
+  const g = grammar[topicId] ?? { correct: 0, wrong: 0 };
+  return {
+    ...grammar,
+    [topicId]: {
+      correct: g.correct + (correct ? 1 : 0),
+      wrong: g.wrong + (correct ? 0 : 1),
+    },
+  };
 }
 
 // Hilfsfunktion: Tageseintrag im Log erhöhen.

@@ -1,0 +1,2110 @@
+[
+  {
+    "topicId": 1,
+    "lektion": 1,
+    "hinweis": "Grundwortstellung: Subjekt – Zeit – Ort – Verb – Objekt. Zeit und Ort stehen vor dem Verb, nie am Satzende.",
+    "luecke": [
+      {
+        "ziel": "在",
+        "distraktoren": [
+          "的",
+          "吗",
+          "很"
+        ]
+      }
+    ],
+    "einsetzen": [
+      "time"
+    ],
+    "fehlerRegeln": [
+      "zeitAmEnde",
+      "ortNachVerb"
+    ],
+    "fragen": [
+      "objShenme"
+    ],
+    "templates": [
+      {
+        "id": "1a",
+        "pattern": [
+          "subj",
+          "time",
+          "vo"
+        ],
+        "de": "{subj} {vo.v} {time} {vo.obj}",
+        "alt": [
+          "timeFirst"
+        ]
+      },
+      {
+        "id": "1b",
+        "pattern": [
+          "subj",
+          "time",
+          "在",
+          "ortAct"
+        ],
+        "de": "{subj} {ortAct.v} {time} {ortAct.in} {ortAct.obj}",
+        "alt": [
+          "timeFirst"
+        ]
+      },
+      {
+        "id": "1c",
+        "pattern": [
+          "subj",
+          "time",
+          "去",
+          "ortActZiel"
+        ],
+        "de": "{subj} geht {time} {ortActZiel.zu} und {ortActZiel.dortInf}",
+        "alt": [
+          "timeFirst"
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": 2,
+    "lektion": 1,
+    "hinweis": "姓 nur mit dem Nachnamen, 叫 mit dem vollen Namen. Höflich fragt man 您贵姓？",
+    "luecke": [
+      {
+        "ziel": "姓",
+        "distraktoren": [
+          "叫",
+          "是",
+          "有"
+        ]
+      },
+      {
+        "ziel": "叫",
+        "distraktoren": [
+          "姓",
+          "是",
+          "有"
+        ]
+      }
+    ],
+    "fehlerRegeln": [
+      "jiaoStattXing"
+    ],
+    "fragen": [
+      "guixing",
+      "jiaoShenme"
+    ],
+    "templates": [
+      {
+        "id": "2a",
+        "pattern": [
+          "subjPronSg",
+          "姓",
+          "surname"
+        ],
+        "de": "{subj:heißen} mit Nachnamen {surname}"
+      },
+      {
+        "id": "2b",
+        "pattern": [
+          "subjPronSg",
+          "叫",
+          "fullname"
+        ],
+        "de": "{subj:heißen} {fullname}"
+      }
+    ]
+  },
+  {
+    "topicId": 3,
+    "lektion": 1,
+    "hinweis": "A 是 B – 是 wird nicht konjugiert. Mit 吗 am Satzende wird daraus eine Ja/Nein-Frage.",
+    "luecke": [
+      {
+        "ziel": "是",
+        "distraktoren": [
+          "很",
+          "有",
+          "叫"
+        ]
+      }
+    ],
+    "umformungen": [
+      "ma"
+    ],
+    "fragen": [
+      "jaNein"
+    ],
+    "templates": [
+      {
+        "id": "3a",
+        "pattern": [
+          "subjSg",
+          "是",
+          "beruf"
+        ],
+        "de": "{subj:sein} {beruf}"
+      },
+      {
+        "id": "3b",
+        "pattern": [
+          "subjSg",
+          "是",
+          "land",
+          "人"
+        ],
+        "de": "{subj:sein} {land.person}"
+      }
+    ]
+  },
+  {
+    "topicId": 4,
+    "lektion": 1,
+    "hinweis": "Besitzer + 的 + Nomen: 我的书 – mein Buch.",
+    "luecke": [
+      {
+        "ziel": "的",
+        "distraktoren": [
+          "了",
+          "吗",
+          "很"
+        ]
+      }
+    ],
+    "einsetzen": [
+      "的"
+    ],
+    "fehlerRegeln": [
+      "deFehlt"
+    ],
+    "templates": [
+      {
+        "id": "4a",
+        "pattern": [
+          "这",
+          "是",
+          "poss",
+          "的",
+          "thing"
+        ],
+        "de": "Das ist {poss.dNom} {thing}"
+      },
+      {
+        "id": "4b",
+        "pattern": [
+          "poss",
+          "的",
+          "thing",
+          "很",
+          "adjThing"
+        ],
+        "de": "{poss.dNom} {thing} ist sehr {adjThing}"
+      }
+    ]
+  },
+  {
+    "topicId": 5,
+    "lektion": 1,
+    "hinweis": "Adjektivprädikat: S + 很 + Adjektiv – ohne 是! 很 ist hier fast unbetont.",
+    "luecke": [
+      {
+        "ziel": "很",
+        "distraktoren": [
+          "是",
+          "的",
+          "吗"
+        ]
+      }
+    ],
+    "einsetzen": [
+      "很"
+    ],
+    "fehlerRegeln": [
+      "shiStattHen"
+    ],
+    "umformungen": [
+      "ma"
+    ],
+    "templates": [
+      {
+        "id": "5a",
+        "pattern": [
+          "subjPers",
+          "很",
+          "adjPerson"
+        ],
+        "de": "{subj:sein} sehr {adjPerson}"
+      },
+      {
+        "id": "5b",
+        "pattern": [
+          "demnp",
+          "很",
+          "adjThing"
+        ],
+        "de": "{demnp} ist sehr {adjThing}"
+      }
+    ]
+  },
+  {
+    "topicId": 6,
+    "lektion": 1,
+    "hinweis": "Verblose Sätze: Alter und Uhrzeit kommen ohne Verb aus – kein 是 nötig.",
+    "luecke": [
+      {
+        "ziel": "岁",
+        "distraktoren": [
+          "年",
+          "号",
+          "点"
+        ]
+      }
+    ],
+    "fragen": [
+      "duoDa",
+      "jiDian"
+    ],
+    "templates": [
+      {
+        "id": "6a",
+        "pattern": [
+          "subjSg",
+          "今年",
+          "numAge",
+          "岁"
+        ],
+        "de": "{subj:sein} dieses Jahr {numAge} Jahre alt"
+      },
+      {
+        "id": "6b",
+        "pattern": [
+          "现在",
+          "uhrzeit"
+        ],
+        "de": "Es ist jetzt {uhrzeit}"
+      }
+    ]
+  },
+  {
+    "topicId": 7,
+    "lektion": 1,
+    "hinweis": "谁 steht an der Stelle, an der in der Antwort die Person steht.",
+    "luecke": [
+      {
+        "ziel": "谁",
+        "distraktoren": [
+          "什么",
+          "哪儿",
+          "几"
+        ],
+        "frage": "werIstDas"
+      }
+    ],
+    "fragen": [
+      "werIstDas",
+      "werSubj"
+    ],
+    "templates": [
+      {
+        "id": "7a",
+        "pattern": [
+          "subjPron3",
+          "是",
+          "poss",
+          "的",
+          "persNoun"
+        ],
+        "de": "{subj:sein} {poss.dNom} {persNoun}"
+      },
+      {
+        "id": "7b",
+        "pattern": [
+          "fullname",
+          "是",
+          "poss",
+          "的",
+          "persNoun"
+        ],
+        "de": "{fullname} ist {poss.dNom} {persNoun}"
+      }
+    ]
+  },
+  {
+    "topicId": 8,
+    "lektion": 1,
+    "hinweis": "W-Fragewörter stehen an der Stelle im Satz, an der die Antwort steht – keine Umstellung wie im Deutschen.",
+    "luecke": [
+      {
+        "ziel": "什么",
+        "distraktoren": [
+          "谁",
+          "哪儿",
+          "几"
+        ],
+        "frage": "objShenme"
+      },
+      {
+        "ziel": "哪儿",
+        "distraktoren": [
+          "什么",
+          "谁",
+          "多少"
+        ],
+        "frage": "ortNar"
+      }
+    ],
+    "fragen": [
+      "objShenme",
+      "ortNar",
+      "zeitWann"
+    ],
+    "templates": [
+      {
+        "id": "8a",
+        "pattern": [
+          "subj",
+          "vo"
+        ],
+        "de": "{subj} {vo.v} {vo.obj}"
+      },
+      {
+        "id": "8b",
+        "pattern": [
+          "subj",
+          "在",
+          "ortAct"
+        ],
+        "de": "{subj} {ortAct.v} {ortAct.in} {ortAct.obj}"
+      }
+    ]
+  },
+  {
+    "topicId": 9,
+    "lektion": 1,
+    "hinweis": "Uhrzeit: Zahl + 点 (+ 半 / 一刻 / Zahl + 分). Zwei Uhr heißt 两点, nie 二点!",
+    "luecke": [
+      {
+        "ziel": "点",
+        "distraktoren": [
+          "分",
+          "号",
+          "岁"
+        ]
+      }
+    ],
+    "fehlerRegeln": [
+      "erStattLiang"
+    ],
+    "fragen": [
+      "jiDian"
+    ],
+    "templates": [
+      {
+        "id": "9a",
+        "pattern": [
+          "现在",
+          "uhrzeit"
+        ],
+        "de": "Es ist jetzt {uhrzeit}"
+      },
+      {
+        "id": "9b",
+        "pattern": [
+          "subj",
+          "uhrzeit",
+          "去",
+          "place"
+        ],
+        "de": "{subj} geht um {uhrzeit} {place.zu}",
+        "alt": []
+      }
+    ]
+  },
+  {
+    "topicId": 10,
+    "lektion": 1,
+    "hinweis": "Zeitangaben stehen vor dem Verb: entweder vor oder direkt nach dem Subjekt – nie am Satzende.",
+    "einsetzen": [
+      "time"
+    ],
+    "fehlerRegeln": [
+      "zeitAmEnde"
+    ],
+    "fragen": [
+      "zeitWann"
+    ],
+    "templates": [
+      {
+        "id": "10a",
+        "pattern": [
+          "subj",
+          "time",
+          "vo"
+        ],
+        "de": "{subj} {vo.v} {time} {vo.obj}",
+        "alt": [
+          "timeFirst"
+        ]
+      },
+      {
+        "id": "10b",
+        "pattern": [
+          "subj",
+          "time",
+          "去",
+          "place"
+        ],
+        "de": "{subj} geht {time} {place.zu}",
+        "alt": [
+          "timeFirst"
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": 11,
+    "lektion": 1,
+    "hinweis": "Ein Verb (mit Objekt) kann mit 的 ein Nomen näher bestimmen: 我买的书 – das Buch, das ich gekauft habe.",
+    "luecke": [
+      {
+        "ziel": "的",
+        "distraktoren": [
+          "了",
+          "得",
+          "吗"
+        ]
+      }
+    ],
+    "templates": [
+      {
+        "id": "11a",
+        "pattern": [
+          "这",
+          "是",
+          "possPron",
+          "买",
+          "的",
+          "kaufThing"
+        ],
+        "de": "Das ist {kaufThing.relSatz}"
+      },
+      {
+        "id": "11b",
+        "pattern": [
+          "我",
+          "喜欢",
+          "kinPron",
+          "做",
+          "的",
+          "菜"
+        ],
+        "de": "Ich mag die Gerichte, die {kinPron.klein} kocht"
+      }
+    ]
+  },
+  {
+    "topicId": 12,
+    "lektion": 1,
+    "hinweis": "有 = haben / es gibt. Verneint wird 有 immer mit 没, nie mit 不!",
+    "luecke": [
+      {
+        "ziel": "有",
+        "distraktoren": [
+          "是",
+          "在",
+          "很"
+        ]
+      }
+    ],
+    "fehlerRegeln": [
+      "buStattMei"
+    ],
+    "umformungen": [
+      "youmeiyou"
+    ],
+    "templates": [
+      {
+        "id": "12a",
+        "pattern": [
+          "subjSg",
+          "有",
+          "numnp"
+        ],
+        "de": "{subj:haben} {numnp}"
+      },
+      {
+        "id": "12b",
+        "pattern": [
+          "subjPronSg",
+          "家",
+          "有",
+          "numFam",
+          "口",
+          "人"
+        ],
+        "de": "{subj.possFam} Familie hat {numFam} Mitglieder"
+      },
+      {
+        "id": "12c",
+        "pattern": [
+          "subjSg",
+          "没有",
+          "thing"
+        ],
+        "de": "{subj:haben} {thing.kein}"
+      }
+    ]
+  },
+  {
+    "topicId": 13,
+    "lektion": 1,
+    "hinweis": "有没有 fragt nach Besitz/Existenz – ohne 吗 am Satzende!",
+    "luecke": [
+      {
+        "ziel": "有没有",
+        "umformung": "youmeiyou",
+        "distraktoren": [
+          "是不是",
+          "有吗",
+          "不有"
+        ]
+      }
+    ],
+    "umformungen": [
+      "youmeiyou",
+      "youmeiyouZuMa"
+    ],
+    "fragen": [
+      "jaNein"
+    ],
+    "templates": [
+      {
+        "id": "13a",
+        "pattern": [
+          "你",
+          "有",
+          "thing"
+        ],
+        "de": "Du hast {thing.einen}"
+      },
+      {
+        "id": "13b",
+        "pattern": [
+          "subjPron3",
+          "有",
+          "numnp"
+        ],
+        "de": "{subj:haben} {numnp}"
+      }
+    ]
+  },
+  {
+    "topicId": 14,
+    "lektion": 1,
+    "hinweis": "V 不 V ist eine neutrale Ja/Nein-Frage: 你喝不喝咖啡？ – nie zusätzlich 吗 anhängen!",
+    "fehlerRegeln": [
+      "maPlusVnv"
+    ],
+    "umformungen": [
+      "vnv",
+      "maZuVnv"
+    ],
+    "fragen": [
+      "jaNein"
+    ],
+    "templates": [
+      {
+        "id": "14a",
+        "pattern": [
+          "你",
+          "voMono"
+        ],
+        "de": "Du {voMono.v} {voMono.obj}",
+        "subjekt": "du"
+      },
+      {
+        "id": "14b",
+        "pattern": [
+          "subjPronSg2",
+          "是",
+          "beruf"
+        ],
+        "de": "{subj:sein} {beruf}"
+      }
+    ]
+  },
+  {
+    "topicId": 15,
+    "lektion": 4,
+    "hinweis": "Datum von groß nach klein: Jahr → Monat (月) → Tag (号) → Wochentag.",
+    "luecke": [
+      {
+        "ziel": "月",
+        "distraktoren": [
+          "号",
+          "点",
+          "年"
+        ]
+      },
+      {
+        "ziel": "号",
+        "distraktoren": [
+          "月",
+          "分",
+          "岁"
+        ]
+      }
+    ],
+    "fehlerRegeln": [
+      "datumKleinVorGross"
+    ],
+    "fragen": [
+      "jiYueJiHao"
+    ],
+    "templates": [
+      {
+        "id": "15a",
+        "pattern": [
+          "今天",
+          "numMonat",
+          "月",
+          "numTag",
+          "号"
+        ],
+        "de": "Heute ist der {numTag}. {numMonat.monat}"
+      },
+      {
+        "id": "15b",
+        "pattern": [
+          "poss",
+          "的",
+          "生日",
+          "是",
+          "numMonat",
+          "月",
+          "numTag",
+          "号"
+        ],
+        "de": "{poss.dNomM} Geburtstag ist am {numTag}. {numMonat.monat}"
+      }
+    ]
+  },
+  {
+    "topicId": 16,
+    "lektion": 4,
+    "hinweis": "Nach dem Alter fragt man mit 多大, geantwortet wird mit Zahl + 岁 – ohne Verb.",
+    "luecke": [
+      {
+        "ziel": "岁",
+        "distraktoren": [
+          "年",
+          "号",
+          "个"
+        ]
+      }
+    ],
+    "fehlerRegeln": [
+      "liangInZehnern"
+    ],
+    "fragen": [
+      "duoDa"
+    ],
+    "templates": [
+      {
+        "id": "16a",
+        "pattern": [
+          "subjPronSg",
+          "今年",
+          "numAge",
+          "岁"
+        ],
+        "de": "{subj:sein} dieses Jahr {numAge} Jahre alt"
+      },
+      {
+        "id": "16b",
+        "pattern": [
+          "kinSubj",
+          "今年",
+          "numAge",
+          "岁"
+        ],
+        "de": "{kinSubj} ist dieses Jahr {numAge} Jahre alt"
+      }
+    ]
+  },
+  {
+    "topicId": 17,
+    "lektion": 4,
+    "hinweis": "Vorschlag + ，好吗？ – „…, okay?“ Die Antwort ist z. B. 好的 oder 好啊.",
+    "umformungen": [
+      "haoma"
+    ],
+    "templates": [
+      {
+        "id": "17a",
+        "pattern": [
+          "我们",
+          "timeFuture",
+          "去",
+          "ortActZiel",
+          "，",
+          "好吗"
+        ],
+        "de": "Wollen wir {timeFuture} {ortActZiel.zu} gehen und {ortActZiel.dortInf}, okay?",
+        "frage": true
+      },
+      {
+        "id": "17b",
+        "pattern": [
+          "我们",
+          "在",
+          "treffOrt",
+          "见面",
+          "，",
+          "好吗"
+        ],
+        "de": "Treffen wir uns {treffOrt.in}, okay?",
+        "frage": true
+      }
+    ],
+    "reihenfolge": false
+  },
+  {
+    "topicId": 18,
+    "lektion": 4,
+    "hinweis": "要 + Verb drückt eine feste Absicht/Zukunft aus. Die Zeitangabe steht vor 要.",
+    "luecke": [
+      {
+        "ziel": "要",
+        "distraktoren": [
+          "很",
+          "都",
+          "在"
+        ]
+      }
+    ],
+    "einsetzen": [
+      "要"
+    ],
+    "fehlerRegeln": [
+      "zeitAmEnde"
+    ],
+    "templates": [
+      {
+        "id": "18a",
+        "pattern": [
+          "subj",
+          "timeFuture",
+          "要",
+          "去",
+          "placeReise"
+        ],
+        "de": "{subj:wollen} {timeFuture} {placeReise.zu} fahren",
+        "alt": [
+          "timeFirst"
+        ]
+      },
+      {
+        "id": "18b",
+        "pattern": [
+          "subj",
+          "timeFuture",
+          "要",
+          "vo"
+        ],
+        "de": "{subj:wollen} {timeFuture} {vo.obj} {vo.inf}",
+        "alt": [
+          "timeFirst"
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": 19,
+    "lektion": 4,
+    "hinweis": "听说 + Satz = „ich habe gehört, dass …“. 听说 steht am Satzanfang (oder nach dem Subjekt).",
+    "einsetzen": [
+      "听说"
+    ],
+    "templates": [
+      {
+        "id": "19a",
+        "pattern": [
+          "听说",
+          "subjPron3",
+          "很",
+          "adjPerson"
+        ],
+        "de": "Ich habe gehört, dass {subj.klein} sehr {adjPerson} ist"
+      },
+      {
+        "id": "19b",
+        "pattern": [
+          "听说",
+          "demnpGastro",
+          "的",
+          "菜",
+          "很",
+          "好吃"
+        ],
+        "de": "Ich habe gehört, dass das Essen {demnpGastro.inDem} sehr lecker ist"
+      }
+    ]
+  },
+  {
+    "topicId": 20,
+    "lektion": 4,
+    "hinweis": "太 + Adjektiv + 了 = „zu …“. Das 了 gehört fest dazu.",
+    "luecke": [
+      {
+        "ziel": "太",
+        "distraktoren": [
+          "很",
+          "都",
+          "最"
+        ]
+      },
+      {
+        "ziel": "了",
+        "distraktoren": [
+          "的",
+          "吗",
+          "过"
+        ]
+      }
+    ],
+    "fehlerRegeln": [
+      "leFehlt"
+    ],
+    "templates": [
+      {
+        "id": "20a",
+        "pattern": [
+          "demnp",
+          "太",
+          "adjThingNeg",
+          "了"
+        ],
+        "de": "{demnp} ist zu {adjThingNeg}"
+      },
+      {
+        "id": "20b",
+        "pattern": [
+          "subjPers",
+          "太",
+          "adjZustandNeg",
+          "了"
+        ],
+        "de": "{subj:sein} zu {adjZustandNeg}"
+      }
+    ]
+  },
+  {
+    "topicId": 21,
+    "lektion": 4,
+    "hinweis": "在 + Ort steht vor dem Verb: 我在图书馆看书 – nie am Satzende!",
+    "luecke": [
+      {
+        "ziel": "在",
+        "distraktoren": [
+          "的",
+          "很",
+          "去"
+        ]
+      }
+    ],
+    "einsetzen": [
+      "在"
+    ],
+    "fehlerRegeln": [
+      "ortNachVerb"
+    ],
+    "fragen": [
+      "ortNar"
+    ],
+    "templates": [
+      {
+        "id": "21a",
+        "pattern": [
+          "subj",
+          "在",
+          "ortAct"
+        ],
+        "de": "{subj} {ortAct.v} {ortAct.in} {ortAct.obj}"
+      },
+      {
+        "id": "21b",
+        "pattern": [
+          "subj",
+          "time",
+          "在",
+          "ortAct"
+        ],
+        "de": "{subj} {ortAct.v} {time} {ortAct.in} {ortAct.obj}",
+        "alt": [
+          "timeFirst"
+        ]
+      }
+    ]
+  },
+  {
+    "topicId": 22,
+    "lektion": 5,
+    "hinweis": "Zahl/这/那 + ZEW + Nomen. Jedes Nomen hat sein festes Zähleinheitswort – 个 passt nicht überall!",
+    "luecke": [
+      {
+        "ziel": "zew",
+        "distraktorPool": "zew"
+      }
+    ],
+    "fehlerRegeln": [
+      "falschesZew"
+    ],
+    "templates": [
+      {
+        "id": "22a",
+        "pattern": [
+          "subjSg",
+          "有",
+          "numnp"
+        ],
+        "de": "{subj:haben} {numnp}"
+      },
+      {
+        "id": "22b",
+        "pattern": [
+          "subjSg",
+          "想",
+          "买",
+          "numnpKauf"
+        ],
+        "de": "{subj:moechten} {numnpKauf} kaufen"
+      }
+    ]
+  },
+  {
+    "topicId": 23,
+    "lektion": 5,
+    "hinweis": "些 macht eine unbestimmte Menge: 一些 (einige), 这些/那些 (diese/jene).",
+    "luecke": [
+      {
+        "ziel": "些",
+        "distraktoren": [
+          "个",
+          "件",
+          "本"
+        ]
+      }
+    ],
+    "templates": [
+      {
+        "id": "23a",
+        "pattern": [
+          "subjSg",
+          "想",
+          "买",
+          "一些",
+          "massNoun"
+        ],
+        "de": "{subj:moechten} {massNoun} kaufen"
+      },
+      {
+        "id": "23b",
+        "pattern": [
+          "这些",
+          "pluralNoun",
+          "很",
+          "adjThing"
+        ],
+        "de": "Diese {pluralNoun.pl} sind sehr {adjThing}"
+      }
+    ]
+  },
+  {
+    "topicId": 24,
+    "lektion": 5,
+    "hinweis": "Vor Zähleinheitswörtern steht 两, in Zahlenreihen und Ordnungszahlen 二: 两本书, aber 十二.",
+    "luecke": [
+      {
+        "ziel": "两",
+        "distraktoren": [
+          "二",
+          "双",
+          "个"
+        ]
+      }
+    ],
+    "fehlerRegeln": [
+      "erStattLiang"
+    ],
+    "templates": [
+      {
+        "id": "24a",
+        "pattern": [
+          "subjSg",
+          "有",
+          "numnpLiang"
+        ],
+        "de": "{subj:haben} {numnpLiang}"
+      },
+      {
+        "id": "24b",
+        "pattern": [
+          "现在",
+          "uhrzeitLiang"
+        ],
+        "de": "Es ist jetzt {uhrzeitLiang}"
+      }
+    ]
+  },
+  {
+    "topicId": 25,
+    "lektion": 5,
+    "hinweis": "Nach dem Preis fragt man mit 多少钱, geantwortet wird mit Zahl + 块（钱）.",
+    "luecke": [
+      {
+        "ziel": "钱",
+        "distraktoren": [
+          "块",
+          "岁",
+          "号"
+        ]
+      }
+    ],
+    "fragen": [
+      "duoshaoQian"
+    ],
+    "templates": [
+      {
+        "id": "25a",
+        "pattern": [
+          "demnpKauf",
+          "numPreis",
+          "块",
+          "钱"
+        ],
+        "de": "{demnpKauf} kostet {numPreis} Yuan"
+      },
+      {
+        "id": "25b",
+        "pattern": [
+          "一",
+          "杯",
+          "getraenk",
+          "numPreisKlein",
+          "块",
+          "钱"
+        ],
+        "de": "Ein Glas {getraenk} kostet {numPreisKlein} Yuan"
+      }
+    ]
+  },
+  {
+    "topicId": 26,
+    "lektion": 5,
+    "hinweis": "了 direkt nach dem Verb markiert die abgeschlossene Handlung – oft mit Mengenangabe beim Objekt.",
+    "luecke": [
+      {
+        "ziel": "了",
+        "distraktoren": [
+          "的",
+          "过",
+          "吗"
+        ]
+      }
+    ],
+    "einsetzen": [
+      "了"
+    ],
+    "fehlerRegeln": [
+      "meiMitLe"
+    ],
+    "templates": [
+      {
+        "id": "26a",
+        "pattern": [
+          "subjSg",
+          "买",
+          "了",
+          "numnpKauf"
+        ],
+        "de": "{subj:haben} {numnpKauf} gekauft"
+      },
+      {
+        "id": "26b",
+        "pattern": [
+          "subjSg",
+          "voNumKonsum"
+        ],
+        "de": "{subj:haben} {voNumKonsum.deNum} {voNumKonsum.part}"
+      }
+    ]
+  },
+  {
+    "topicId": 27,
+    "lektion": 5,
+    "hinweis": "会 = gelernte Fähigkeit, 能 = situative Möglichkeit, 可以 = Erlaubnis.",
+    "umformungen": [
+      "vnv"
+    ],
+    "fragen": [
+      "jaNein"
+    ],
+    "templates": [
+      {
+        "id": "27a",
+        "pattern": [
+          "subjSg",
+          "会",
+          "voSkill"
+        ],
+        "de": "{subj:koennen} {voSkill.obj} {voSkill.inf}"
+      },
+      {
+        "id": "27b",
+        "pattern": [
+          "我",
+          "可以",
+          "用",
+          "你",
+          "的",
+          "thing",
+          "吗"
+        ],
+        "de": "Darf ich dein {thing.ohneArtikel} benutzen?",
+        "frage": true
+      },
+      {
+        "id": "27c",
+        "pattern": [
+          "subjSg",
+          "今天",
+          "不",
+          "能",
+          "actPflicht"
+        ],
+        "de": "{subj:koennen} heute nicht {actPflicht.inf}"
+      }
+    ]
+  },
+  {
+    "topicId": 28,
+    "lektion": 5,
+    "hinweis": "想 + Verb = „möchten“. Verneinung: 不想.",
+    "luecke": [
+      {
+        "ziel": "想",
+        "distraktoren": [
+          "很",
+          "都",
+          "在"
+        ]
+      }
+    ],
+    "einsetzen": [
+      "想"
+    ],
+    "umformungen": [
+      "ma"
+    ],
+    "templates": [
+      {
+        "id": "28a",
+        "pattern": [
+          "subjSg",
+          "想",
+          "vo"
+        ],
+        "de": "{subj:moechten} {vo.obj} {vo.inf}"
+      },
+      {
+        "id": "28b",
+        "pattern": [
+          "subjSg",
+          "想",
+          "去",
+          "placeReise"
+        ],
+        "de": "{subj:moechten} {placeReise.zu} fahren"
+      }
+    ]
+  },
+  {
+    "topicId": 29,
+    "lektion": 5,
+    "hinweis": "A 比 B + Adjektiv – vor dem Adjektiv steht KEIN 很!",
+    "luecke": [
+      {
+        "ziel": "比",
+        "distraktoren": [
+          "跟",
+          "在",
+          "给"
+        ]
+      }
+    ],
+    "einsetzen": [
+      "比"
+    ],
+    "fehlerRegeln": [
+      "henInBi"
+    ],
+    "umformungen": [
+      "biZuMeiyou"
+    ],
+    "templates": [
+      {
+        "id": "29a",
+        "pattern": [
+          "demnpPair",
+          "比",
+          "demnpPairB",
+          "adjVergleich"
+        ],
+        "de": "{demnpPair} ist {adjVergleich.komp} als {demnpPairB}"
+      },
+      {
+        "id": "29b",
+        "pattern": [
+          "persA",
+          "比",
+          "persB",
+          "adjPersVergleich"
+        ],
+        "de": "{persA} ist {adjPersVergleich.komp} als {persB.nom}"
+      }
+    ]
+  },
+  {
+    "topicId": 30,
+    "lektion": 5,
+    "hinweis": "Das Maß des Unterschieds steht NACH dem Adjektiv: 贵一点儿 / 贵得多.",
+    "luecke": [
+      {
+        "ziel": "一点儿",
+        "distraktoren": [
+          "有点儿",
+          "得多",
+          "一样"
+        ]
+      }
+    ],
+    "fehlerRegeln": [
+      "massVorAdj"
+    ],
+    "templates": [
+      {
+        "id": "30a",
+        "pattern": [
+          "demnpPair",
+          "比",
+          "demnpPairB",
+          "adjVergleich",
+          "一点儿"
+        ],
+        "de": "{demnpPair} ist etwas {adjVergleich.komp} als {demnpPairB}"
+      },
+      {
+        "id": "30b",
+        "pattern": [
+          "demnpPair",
+          "比",
+          "demnpPairB",
+          "adjVergleich",
+          "得多"
+        ],
+        "de": "{demnpPair} ist viel {adjVergleich.komp} als {demnpPairB}"
+      }
+    ],
+    "umformungen": [
+      "biZuMeiyou"
+    ]
+  },
+  {
+    "topicId": 31,
+    "lektion": 5,
+    "hinweis": "A 没有 B + Adjektiv = „A ist nicht so … wie B“ – die Umkehrung von 比.",
+    "luecke": [
+      {
+        "ziel": "没有",
+        "distraktoren": [
+          "不是",
+          "没",
+          "不比"
+        ]
+      }
+    ],
+    "templates": [
+      {
+        "id": "31a",
+        "pattern": [
+          "demnpPair",
+          "没有",
+          "demnpPairB",
+          "adjVergleich"
+        ],
+        "de": "{demnpPair} ist nicht so {adjVergleich} wie {demnpPairB}"
+      },
+      {
+        "id": "31b",
+        "pattern": [
+          "persA",
+          "没有",
+          "persB",
+          "adjPersVergleich"
+        ],
+        "de": "{persA} ist nicht so {adjPersVergleich} wie {persB.nom}"
+      }
+    ]
+  },
+  {
+    "topicId": 32,
+    "lektion": 5,
+    "hinweis": "A 跟/和 B 一样 (+ Adjektiv) = „A ist genauso (…) wie B“.",
+    "luecke": [
+      {
+        "ziel": "一样",
+        "distraktoren": [
+          "一起",
+          "一点儿",
+          "有点儿"
+        ]
+      }
+    ],
+    "templates": [
+      {
+        "id": "32a",
+        "pattern": [
+          "demnpPair",
+          "跟",
+          "demnpPairB",
+          "一样",
+          "adjVergleich"
+        ],
+        "de": "{demnpPair} ist genauso {adjVergleich} wie {demnpPairB}"
+      },
+      {
+        "id": "32b",
+        "pattern": [
+          "possThing",
+          "跟",
+          "possThingB",
+          "一样"
+        ],
+        "de": "{possThing} und {possThingB.klein} sind gleich"
+      }
+    ]
+  },
+  {
+    "topicId": 33,
+    "lektion": 5,
+    "hinweis": "Vergleich beim Verb: A + V + 得 + 比 B + Adjektiv – 他跑得比我快.",
+    "luecke": [
+      {
+        "ziel": "得",
+        "distraktoren": [
+          "的",
+          "了",
+          "地"
+        ]
+      }
+    ],
+    "templates": [
+      {
+        "id": "33a",
+        "pattern": [
+          "persA",
+          "vAdv",
+          "得",
+          "比",
+          "persB",
+          "advAdj"
+        ],
+        "de": "{persA} {vAdv.v} {advAdj.komp} als {persB.nom}"
+      },
+      {
+        "id": "33b",
+        "pattern": [
+          "persA",
+          "vAdv2",
+          "得",
+          "比",
+          "persB",
+          "advAdj2"
+        ],
+        "de": "{persA} {vAdv2.v} {advAdj2.komp} als {persB.nom}"
+      }
+    ]
+  },
+  {
+    "topicId": 34,
+    "lektion": 5,
+    "hinweis": "是……的 hebt bei vergangenen Ereignissen Ort/Zeit/Art hervor: 这件衣服是在商场买的.",
+    "luecke": [
+      {
+        "ziel": "是",
+        "distraktoren": [
+          "很",
+          "有",
+          "在"
+        ]
+      },
+      {
+        "ziel": "的",
+        "distraktoren": [
+          "了",
+          "过",
+          "吗"
+        ]
+      }
+    ],
+    "templates": [
+      {
+        "id": "34a",
+        "pattern": [
+          "demnpKauf",
+          "是",
+          "我",
+          "在",
+          "kaufOrt",
+          "买",
+          "的"
+        ],
+        "de": "{demnpKauf.akk} habe ich {kaufOrt.in} gekauft"
+      },
+      {
+        "id": "34b",
+        "pattern": [
+          "我",
+          "是",
+          "跟",
+          "begleiter",
+          "一起",
+          "去",
+          "的"
+        ],
+        "de": "Ich bin mit {begleiter.dat} zusammen hingegangen"
+      }
+    ]
+  },
+  {
+    "topicId": 35,
+    "lektion": 5,
+    "hinweis": "最 + Adjektiv/Verb = Superlativ: 最贵 – am teuersten, 最喜欢 – am liebsten mögen.",
+    "luecke": [
+      {
+        "ziel": "最",
+        "distraktoren": [
+          "很",
+          "太",
+          "更"
+        ]
+      }
+    ],
+    "einsetzen": [
+      "最"
+    ],
+    "templates": [
+      {
+        "id": "35a",
+        "pattern": [
+          "subjSg",
+          "最",
+          "喜欢",
+          "vo"
+        ],
+        "de": "Am liebsten {vo.v} {subj.klein} {vo.obj}"
+      },
+      {
+        "id": "35b",
+        "pattern": [
+          "demnp",
+          "最",
+          "adjThing"
+        ],
+        "de": "{demnp} ist {adjThing.sup}"
+      }
+    ]
+  },
+  {
+    "topicId": 36,
+    "lektion": 5,
+    "hinweis": "Nach 的 kann das Nomen wegfallen, wenn es klar ist: 这本书是我的 – … gehört mir.",
+    "luecke": [
+      {
+        "ziel": "的",
+        "distraktoren": [
+          "了",
+          "吗",
+          "得"
+        ]
+      }
+    ],
+    "templates": [
+      {
+        "id": "36a",
+        "pattern": [
+          "demnp",
+          "是",
+          "possSolo",
+          "的"
+        ],
+        "de": "{demnp} gehört {possSolo.dat}"
+      },
+      {
+        "id": "36b",
+        "pattern": [
+          "demnp",
+          "不",
+          "是",
+          "possSolo",
+          "的"
+        ],
+        "de": "{demnp} gehört nicht {possSolo.dat}"
+      }
+    ]
+  },
+  {
+    "topicId": 37,
+    "lektion": 5,
+    "hinweis": "Verbverdopplung macht die Handlung kurz und beiläufig: 看看 – mal (kurz) anschauen.",
+    "luecke": [
+      {
+        "ziel": "看看",
+        "distraktoren": [
+          "看",
+          "见见",
+          "看了"
+        ]
+      }
+    ],
+    "templates": [
+      {
+        "id": "37a",
+        "pattern": [
+          "subjSg",
+          "想",
+          "看看",
+          "poss2",
+          "的",
+          "thing"
+        ],
+        "de": "{subj:moechten} mal {poss2.dAkk} {thing.ohneArtikel} anschauen"
+      },
+      {
+        "id": "37b",
+        "pattern": [
+          "subjSg",
+          "想",
+          "试试",
+          "demnpKleidung"
+        ],
+        "de": "{subj:moechten} {demnpKleidung.akk} mal anprobieren"
+      }
+    ]
+  },
+  {
+    "topicId": 38,
+    "lektion": 6,
+    "hinweis": "V + 过 = Erfahrung („schon einmal …“). Verneinung mit 没: 我没去过日本.",
+    "luecke": [
+      {
+        "ziel": "过",
+        "distraktoren": [
+          "了",
+          "的",
+          "着"
+        ]
+      }
+    ],
+    "einsetzen": [
+      "过"
+    ],
+    "fehlerRegeln": [
+      "buStattMeiGuo"
+    ],
+    "umformungen": [
+      "ma"
+    ],
+    "fragen": [
+      "jaNein"
+    ],
+    "templates": [
+      {
+        "id": "38a",
+        "pattern": [
+          "subjSg",
+          "去",
+          "过",
+          "placeReise"
+        ],
+        "de": "{subj:sein} schon einmal {placeReise.in} gewesen"
+      },
+      {
+        "id": "38b",
+        "pattern": [
+          "subjSg",
+          "吃",
+          "过",
+          "gericht"
+        ],
+        "de": "{subj:haben} schon einmal {gericht} gegessen"
+      },
+      {
+        "id": "38c",
+        "pattern": [
+          "subjSg",
+          "没",
+          "去",
+          "过",
+          "placeReise"
+        ],
+        "de": "{subj:sein} noch nie {placeReise.in} gewesen"
+      }
+    ]
+  },
+  {
+    "topicId": 39,
+    "lektion": 6,
+    "hinweis": "Alternativfrage: A 还是 B？ – 还是 ersetzt das Fragewort, kein 吗 nötig. In Fragen nie 和!",
+    "luecke": [
+      {
+        "ziel": "还是",
+        "distraktoren": [
+          "和",
+          "也",
+          "都"
+        ]
+      }
+    ],
+    "fehlerRegeln": [
+      "heStattHaishi"
+    ],
+    "fragen": [
+      "alternativ"
+    ],
+    "templates": [
+      {
+        "id": "39a",
+        "pattern": [
+          "你",
+          "voPairA",
+          "还是",
+          "voPairB"
+        ],
+        "de": "{voPairA.duV} du {voPairA.obj} oder {voPairB.obj}",
+        "frage": true
+      },
+      {
+        "id": "39b",
+        "pattern": [
+          "你",
+          "去",
+          "placeReiseA",
+          "还是",
+          "去",
+          "placeReiseB"
+        ],
+        "de": "Fährst du {placeReiseA.zu} oder {placeReiseB.zu}",
+        "frage": true
+      }
+    ]
+  },
+  {
+    "topicId": 40,
+    "lektion": 6,
+    "hinweis": "又…又… verbindet zwei gleichzeitig geltende Eigenschaften: 又便宜又好看.",
+    "luecke": [
+      {
+        "ziel": "又",
+        "distraktoren": [
+          "也",
+          "都",
+          "还"
+        ]
+      }
+    ],
+    "templates": [
+      {
+        "id": "40a",
+        "pattern": [
+          "demnp",
+          "又",
+          "adjPairA",
+          "又",
+          "adjPairB"
+        ],
+        "de": "{demnp} ist {adjPairA} und {adjPairB}"
+      },
+      {
+        "id": "40b",
+        "pattern": [
+          "subjPron3",
+          "又",
+          "persAdjPairA",
+          "又",
+          "persAdjPairB"
+        ],
+        "de": "{subj:sein} {persAdjPairA} und {persAdjPairB}"
+      }
+    ]
+  },
+  {
+    "topicId": 41,
+    "lektion": 6,
+    "hinweis": "一边 V₁ 一边 V₂ – zwei Handlungen laufen gleichzeitig ab.",
+    "luecke": [
+      {
+        "ziel": "一边",
+        "distraktoren": [
+          "一起",
+          "一样",
+          "一点儿"
+        ]
+      }
+    ],
+    "templates": [
+      {
+        "id": "41a",
+        "pattern": [
+          "subj",
+          "一边",
+          "actPaarA",
+          "一边",
+          "actPaarB"
+        ],
+        "de": "{subj} {actPaarA.v} {actPaarA.obj} und {actPaarB.v} dabei {actPaarB.obj}"
+      },
+      {
+        "id": "41b",
+        "pattern": [
+          "subj",
+          "一边",
+          "喝",
+          "getraenk",
+          "一边",
+          "看",
+          "书"
+        ],
+        "de": "{subj:trinken} {getraenk} und {:lesen} dabei ein Buch"
+      }
+    ]
+  },
+  {
+    "topicId": 42,
+    "lektion": 6,
+    "hinweis": "因为 + Grund，所以 + Folge – im Chinesischen stehen meist beide Wörter.",
+    "luecke": [
+      {
+        "ziel": "因为",
+        "distraktoren": [
+          "所以",
+          "还是",
+          "但是"
+        ]
+      },
+      {
+        "ziel": "所以",
+        "distraktoren": [
+          "因为",
+          "可是",
+          "还是"
+        ]
+      }
+    ],
+    "templates": [
+      {
+        "id": "42a",
+        "pattern": [
+          "因为",
+          "subjPronSg",
+          "很",
+          "adjZustandNeg",
+          "，",
+          "所以",
+          "subjSame",
+          "不",
+          "去",
+          "看",
+          "电影"
+        ],
+        "de": "Weil {subj.klein} sehr {adjZustandNeg} {:sein}, {:gehen} {subj.klein} nicht ins Kino"
+      },
+      {
+        "id": "42b",
+        "pattern": [
+          "因为",
+          "demnpKauf",
+          "太",
+          "贵",
+          "了",
+          "，",
+          "所以",
+          "我",
+          "不",
+          "买"
+        ],
+        "de": "Weil {demnpKauf} zu teuer ist, kaufe ich {demnpKauf.pron} nicht"
+      }
+    ],
+    "reihenfolge": false
+  },
+  {
+    "topicId": 43,
+    "lektion": 6,
+    "hinweis": "有的……有的…… – „manche … , manche …“. 有的 steht vor dem Nomen.",
+    "luecke": [
+      {
+        "ziel": "有的",
+        "distraktoren": [
+          "有",
+          "一些",
+          "每"
+        ]
+      }
+    ],
+    "templates": [
+      {
+        "id": "43a",
+        "pattern": [
+          "有的",
+          "人",
+          "voPairA",
+          "，",
+          "有的",
+          "人",
+          "voPairB"
+        ],
+        "de": "Manche {voPairA.v3pl} {voPairA.obj}, manche {voPairB.v3pl} {voPairB.obj}"
+      },
+      {
+        "id": "43b",
+        "pattern": [
+          "有的",
+          "人",
+          "喜欢",
+          "voPairA",
+          "，",
+          "有的",
+          "人",
+          "喜欢",
+          "voPairB"
+        ],
+        "de": "Manche mögen es, {voPairA.obj} zu {voPairA.inf}, manche {voPairB.obj} zu {voPairB.inf}"
+      }
+    ],
+    "reihenfolge": false
+  },
+  {
+    "topicId": 44,
+    "lektion": 6,
+    "hinweis": "每 + ZEW + Nomen + 都 – bei 每 gehört fast immer ein 都 vor das Verb.",
+    "luecke": [
+      {
+        "ziel": "都",
+        "distraktoren": [
+          "也",
+          "很",
+          "再"
+        ]
+      }
+    ],
+    "einsetzen": [
+      "都"
+    ],
+    "fehlerRegeln": [
+      "douFehlt"
+    ],
+    "templates": [
+      {
+        "id": "44a",
+        "pattern": [
+          "subj",
+          "每天",
+          "都",
+          "vo"
+        ],
+        "de": "{subj} {vo.v} jeden Tag {vo.obj}"
+      },
+      {
+        "id": "44b",
+        "pattern": [
+          "subj",
+          "每",
+          "个",
+          "星期",
+          "都",
+          "去",
+          "place"
+        ],
+        "de": "{subj} geht jede Woche {place.zu}"
+      }
+    ]
+  },
+  {
+    "topicId": 45,
+    "lektion": 6,
+    "hinweis": "都 = „alle/beide“ steht nach dem Subjekt und vor dem Verb – nie vor dem Subjekt.",
+    "luecke": [
+      {
+        "ziel": "都",
+        "distraktoren": [
+          "也",
+          "很",
+          "最"
+        ]
+      }
+    ],
+    "einsetzen": [
+      "都"
+    ],
+    "fehlerRegeln": [
+      "douVorSubjekt"
+    ],
+    "templates": [
+      {
+        "id": "45a",
+        "pattern": [
+          "subjPl",
+          "都",
+          "是",
+          "beruf"
+        ],
+        "de": "{subj:sein} alle {beruf.pl}"
+      },
+      {
+        "id": "45b",
+        "pattern": [
+          "subjPl",
+          "都",
+          "vo"
+        ],
+        "de": "{subj:voAlle} alle {vo.obj}"
+      }
+    ]
+  },
+  {
+    "topicId": 46,
+    "lektion": 6,
+    "hinweis": "有点儿 + Adjektiv = „etwas (unangenehm) …“; Adjektiv + 一点儿 = „etwas mehr davon“ (Wunsch/Vergleich).",
+    "luecke": [
+      {
+        "ziel": "有点儿",
+        "distraktoren": [
+          "一点儿",
+          "一些",
+          "很"
+        ]
+      }
+    ],
+    "fehlerRegeln": [
+      "yidianrStattYoudianr"
+    ],
+    "templates": [
+      {
+        "id": "46a",
+        "pattern": [
+          "demnp",
+          "有点儿",
+          "adjThingNeg"
+        ],
+        "de": "{demnp} ist etwas {adjThingNeg}"
+      },
+      {
+        "id": "46b",
+        "pattern": [
+          "adjWunsch",
+          "一点儿",
+          "，",
+          "好吗"
+        ],
+        "de": "Etwas {adjWunsch.komp}, okay?",
+        "frage": true
+      }
+    ]
+  },
+  {
+    "topicId": 47,
+    "lektion": 6,
+    "hinweis": "Ereignis + 以后 = „nach …“ – 以后 steht NACH dem Ereignis, der Hauptsatz folgt.",
+    "einsetzen": [
+      "以后"
+    ],
+    "templates": [
+      {
+        "id": "47a",
+        "pattern": [
+          "actEreignis",
+          "以后",
+          "，",
+          "我",
+          "去",
+          "placeFreizeit"
+        ],
+        "de": "{actEreignis.nach} gehe ich {placeFreizeit.zu}"
+      },
+      {
+        "id": "47b",
+        "pattern": [
+          "actEreignis",
+          "以后",
+          "，",
+          "我们",
+          "一起",
+          "vo"
+        ],
+        "de": "{actEreignis.nach} {vo.v1pl} wir zusammen {vo.obj}"
+      }
+    ],
+    "reihenfolge": false
+  },
+  {
+    "topicId": 48,
+    "lektion": 6,
+    "hinweis": "给/跟/和 + Person stehen mit ihrer Ergänzung VOR dem Verb: 我给妈妈打电话.",
+    "luecke": [
+      {
+        "ziel": "给",
+        "distraktoren": [
+          "在",
+          "比",
+          "很"
+        ]
+      },
+      {
+        "ziel": "跟",
+        "distraktoren": [
+          "在",
+          "比",
+          "给"
+        ]
+      }
+    ],
+    "fehlerRegeln": [
+      "praepNachVerb"
+    ],
+    "templates": [
+      {
+        "id": "48a",
+        "pattern": [
+          "subjSg",
+          "给",
+          "anrufZiel",
+          "打",
+          "电话"
+        ],
+        "de": "{subj:telefonieren} mit {anrufZiel.dat}"
+      },
+      {
+        "id": "48b",
+        "pattern": [
+          "subjSg",
+          "跟",
+          "begleiter",
+          "一起",
+          "vo"
+        ],
+        "de": "{subj.klein} {vo.v} zusammen mit {begleiter.dat} {vo.objNach}"
+      }
+    ]
+  }
+]
